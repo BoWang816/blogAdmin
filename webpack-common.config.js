@@ -86,7 +86,10 @@ module.exports = () => {
 			]
 		},
 
-		entry: ['@babel/polyfill', './src/index.js'],
+		entry: {
+			index: './src/index.js',
+			login: './src/login/index.js'
+		},
 
 		output: {
 			path: path.resolve(__dirname, 'admin'),
@@ -117,7 +120,24 @@ module.exports = () => {
 				minify: {
 					removeAttributeQuotes: false, // 是否删除属性的双引号
 					collapseWhitespace: false // 是否折叠空白
-				}
+				},
+				chunks: ['index']
+			}),
+
+			// 登陆页面
+			new HtmlWebpackPlugin({
+				title: 'wb \'s blog login',
+				template: "./src/login/index.html",
+				// 打包出来的文件名称
+				filename: "login.html",
+				// 是否加上hash，默认false
+				hash: false,
+				// 最小化输出方式
+				minify: {
+					removeAttributeQuotes: false, // 是否删除属性的双引号
+					collapseWhitespace: false // 是否折叠空白
+				},
+				chunks: ['login']
 			}),
 
 			// 版本信息插件
@@ -151,7 +171,7 @@ module.exports = () => {
 			// 打包进度
 			new webpack.ProgressPlugin(),
 
-			// 清除包
+			// 清除包,3.0以后不会清除打包出来的根文件夹
 			new CleanWebpackPlugin()
 		]
 	}
