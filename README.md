@@ -1,57 +1,38 @@
-# Ant Design Pro
+<h1 align="center">Welcome to blogweb 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
+</p>
 
-This project is initialized with [Ant Design Pro](https://pro.ant.design). Follow is the quick guide for how to use.
+### 🏠 [Homepage](https://github.com/BoWang816/blogWeb)
 
-## Environment Prepare
+### ✨ [Demo](https://github.com/BoWang816/blogWeb)
 
-Install `node_modules`:
+## Install
 
-```bash
+```sh
 npm install
 ```
 
-or
+## Usage
 
-```bash
-yarn
+```sh
+npm run start
 ```
 
-## Provided Scripts
+## Author
 
-Ant Design Pro provides some useful script to help you quick start and build with web project, code style check and test.
+👤 **bo.wang**
 
-Scripts provided in `package.json`. It's safe to modify or add additional script:
+* Website: https://bowang816.github.io
+* Github: [@Bowang816](https://github.com/Bowang816)
 
-### Start project
+## 🤝 Contributing
 
-```bash
-npm start
-```
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/BoWang816/blogWeb/issues). You can also take a look at the [contributing guide](http://gitlab.platdep.shuyun.com/fe/fe-c/ccms-benefit-mamage-react/blob/master/CONTRIBUTING.md).
 
-### Build project
+## Show your support
 
-```bash
-npm run build
-```
+Give a ⭐️ if this project helped you!
 
-### Check code style
-
-```bash
-npm run lint
-```
-
-You can also use script to auto fix some lint error:
-
-```bash
-npm run lint:fix
-```
-
-### Test code
-
-```bash
-npm test
-```
-
-## More
-
-You can view full document on our [official website](https://pro.ant.design). And welcome any feedback in our [github](https://github.com/ant-design/ant-design-pro).
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

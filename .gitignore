@@ -1,40 +1,14 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
 
-# dependencies
-**/node_modules
-# roadhog-api-doc ignore
-/src/utils/request-temp.js
-_roadhog-api-doc
-
-# production
-/dist
-/.vscode
-
-# misc
-.DS_Store
-npm-debug.log*
-yarn-error.log
-
-/coverage
+# IntelliJ project files
 .idea
-yarn.lock
-package-lock.json
-*bak
+*.iml
+out
+gen
+node_modules
 .vscode
-
-# visual studio code
-.history
-*.log
-functions/*
-.temp/**
-
-# umi
-.umi
-.umi-production
-
-# screenshot
-screenshot
-.firebase
-.eslintcache
-
-build
+package-lock.json
+yarn.lock
+admin
