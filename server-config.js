@@ -16,7 +16,7 @@ const config = {
 	apiPort: 80,
 
 	// mock端口
-	serverPort: 3000,
+	serverPort: 4000,
 
 	// 是否使用mock数据
 	useMock: false

@@ -107,7 +107,7 @@ module.exports = () => {
 
 		plugins: [
 			new HtmlWebpackPlugin({
-				title: 'wb \'s blog',
+				title: 'wb \'s blog admin',
 				template: "./src/public/index.html",
 				// 打包出来的文件名称
 				filename: "index.html",
