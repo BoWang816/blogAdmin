@@ -1,7 +1,7 @@
 /**
  * mockConfig.js
- * @author
- * @since {2020/3/26}
+ * @author wangbo
+ * @since 2020/3/26
  * @github https://github.com/BoWang816
  */
 const fs = require('fs');
