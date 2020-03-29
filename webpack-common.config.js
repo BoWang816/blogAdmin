@@ -28,7 +28,7 @@ module.exports = () => {
 				{
 					test: /\.(jsx|js)?$/,
 					// thread-loader：放置在这个 loader 之后的 loader 就会在一个单独的 worker 池中运行
-					use: ['thread-loader', 'cache-loader', "babel-loader"],
+					use: ['thread-loader', 'cache-loader', "babel-loader", "eslint-loader"],
 					// 不使用cache-loader的时候，可以在babel-loader的options中设置cacheDirectory: true
 					include: [path.resolve(__dirname, 'src')],
 					exclude: resolve('node_modules')
