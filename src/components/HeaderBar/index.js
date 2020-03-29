@@ -5,14 +5,21 @@
  * @github https://github.com/BoWang816
  */
 import React, { Component } from 'react';
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 
-export default class Main extends Component {
+export default class HeaderBar extends Component {
+
+	toggle = () => {
+		this.props.onToggle();
+	};
 
     render() {
-        return (
-            <div>
-                我将会是头部
-            </div>
+		const { collapsed } = this.props;
+
+		return (
+            <span>
+				{collapsed ? <MenuUnfoldOutlined onClick={this.toggle}/> : <MenuFoldOutlined  onClick={this.toggle}/>}
+            </span>
         );
     };
 }
