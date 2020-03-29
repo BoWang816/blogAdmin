@@ -7,21 +7,23 @@
 
 // 菜单列表
 import React from "react";
-import { HomeOutlined, DashboardOutlined, SettingOutlined, ProjectOutlined, CloudOutlined, BookOutlined, GithubOutlined, TagsOutlined, FolderOpenOutlined, DatabaseOutlined, ContactsOutlined, ReadOutlined } from '@ant-design/icons';
+import { HomeOutlined, EyeOutlined, IdcardOutlined, DashboardOutlined, SettingOutlined, ProjectOutlined, CloudOutlined, BookOutlined, GithubOutlined, TagsOutlined, FolderOpenOutlined, DatabaseOutlined, ContactsOutlined, ReadOutlined } from '@ant-design/icons';
+import { Home, TrafficStatistics, ReadStatistics, ArticleList, AddArticle, EditArticle, ArticleTypes, ArticleTags, DiaryList, AddDiary, EditDiary, Password, Info, BooksNav, Cloud, AddWork, EditWork, WorkList, Resume, Guest, Github } from "../../public/businessComponents";
 
 export const MENUS = [
 	{
 		title: '首页',
 		icon: <HomeOutlined />,
-		key: '/home'
+		key: '/home',
+		component: Home
 	},
 	{
 		title: '监控面板',
 		icon: <DashboardOutlined />,
 		key: '/home/dashboard',
 		subs: [
-			{ key: '/home/general/button', title: '按钮', icon: '', },
-			{ key: '/home/general/icon', title: '图标', icon: '', },
+			{ key: '/home/dashboard/view', title: '访问量监控', icon: <EyeOutlined />, component: TrafficStatistics },
+			{ key: '/home/dashboard/read', title: '阅读量监控', icon: <ReadOutlined />, component: ReadStatistics },
 		]
 	},
 	{
@@ -29,115 +31,80 @@ export const MENUS = [
 		icon: <ReadOutlined />,
 		key: '/home/article',
 		subs: [
-			{ key: '/home/display/carousel', title: '轮播图', icon: '',
-				subs: [
-					{
-						key: '/home/entry/form',
-						title: '表单',
-						icon: '',
-						subs: [
-							{ key: '/home/entry/form/basic-form', title: '基础表单', icon: '' },
-							{ key: '/home/entry/form/step-form', title: '分步表单', icon: '' }
-						]
-					},
-					{ key: '/home/entry/upload', title: '上传', icon: '' },
-				] },
-			{ key: '/home/display/collapse', title: '折叠面板', icon: '' },
-			{ key: '/home/display/list', title: '列表', icon: '' },
-			{ key: '/home/display/table', title: '表格', icon: '' },
-			{ key: '/home/display/tabs', title: '标签页', icon: '', },
+			{ key: '/home/article/list', title: '文章列表', icon: '', component: ArticleList },
+			{ key: '/home/article/add', title: '新增文章', icon: '', component: AddArticle },
+			{ key: '/home/article/edit', title: '编辑文章', icon: '', component: EditArticle }
 		]
 	},
 	{
 		title: '博客标签',
 		icon: <TagsOutlined />,
 		key: '/home/blogTag',
-		subs: [
-			{ key: '/home/display/carousel', title: '轮播图', icon: '' },
-			{ key: '/home/display/collapse', title: '折叠面板', icon: '' },
-			{ key: '/home/display/list', title: '列表', icon: '' },
-			{ key: '/home/display/table', title: '表格', icon: '' },
-			{ key: '/home/display/tabs', title: '标签页', icon: '', },
-		]
+		component: ArticleTags
 	},
 	{
 		title: '博客分类',
 		icon: <FolderOpenOutlined />,
 		key: '/home/blogType',
-		subs: [
-			{ key: '/home/display/carousel', title: '轮播图', icon: '' },
-			{ key: '/home/display/collapse', title: '折叠面板', icon: '' },
-			{ key: '/home/display/list', title: '列表', icon: '' },
-			{ key: '/home/display/table', title: '表格', icon: '' },
-			{ key: '/home/display/tabs', title: '标签页', icon: '', },
-		]
+		component: ArticleTypes
 	},
 	{
 		title: '日记本',
 		icon: <BookOutlined />,
 		key: '/home/diary',
 		subs: [
-			{ key: '/home/display/carousel', title: '轮播图', icon: '' },
-			{ key: '/home/display/collapse', title: '折叠面板', icon: '' },
-			{ key: '/home/display/list', title: '列表', icon: '' },
-			{ key: '/home/display/table', title: '表格', icon: '' },
-			{ key: '/home/display/tabs', title: '标签页', icon: '', },
+			{ key: '/home/diary/list', title: '日记墙', icon: '', component: DiaryList },
+			{ key: '/home/diary/add', title: '新增日记', icon: '', component: AddDiary },
+			{ key: '/home/diary/edit', title: '编辑日记', icon: '', component: EditDiary }
 		]
 	},
 	{
 		title: '七牛云',
 		icon: <CloudOutlined />,
 		key: '/home/qiniuCloud',
-		subs: [
-			{ key: '/home/feedback/modal', title: '对话框', icon: '', },
-			{ key: '/home/feedback/notification', title: '通知提醒框', icon: '' },
-			{ key: '/home/feedback/spin', title: '加载中', icon: '', }
-		]
+		component: Cloud
 	},
 	{
-		title: '常用书签导航',
+		title: '书签导航',
 		icon: <DatabaseOutlined />,
 		key: '/home/booksNav',
-		subs: [
-			{ key: '/home/display/carousel', title: '轮播图', icon: '' },
-			{ key: '/home/display/collapse', title: '折叠面板', icon: '' },
-			{ key: '/home/display/list', title: '列表', icon: '' },
-			{ key: '/home/display/table', title: '表格', icon: '' },
-			{ key: '/home/display/tabs', title: '标签页', icon: '', },
-		]
+		component: BooksNav
 	},
 	{
 		title: '个人设置',
 		icon: <SettingOutlined />,
 		key: '/home/setting',
 		subs: [
-			{ key: '/home/feedback/modal', title: '对话框', icon: '', },
-			{ key: '/home/feedback/notification', title: '通知提醒框', icon: '' },
-			{ key: '/home/feedback/spin', title: '加载中', icon: '', }
+			{ key: '/home/setting/info', title: '个人资料', icon: '', component: Info },
+			{ key: '/home/setting/password', title: '密码管理', icon: '', component: Password }
 		]
 	},
 	{
 		title: 'Github信息统计',
 		icon: <GithubOutlined />,
 		key: '/home/github',
-		subs: [
-			{ key: '/home/display/carousel', title: '轮播图', icon: '' },
-		]
+		component: Github
+	},
+	{
+		title: '简历管理',
+		icon: <IdcardOutlined />,
+		key: '/home/resume',
+		component: Resume
 	},
 	{
 		title: '留言板',
 		icon: <ContactsOutlined />,
 		key: '/home/guest',
-		subs: [
-			{ key: '/home/display/carousel', title: '轮播图', icon: '' },
-		]
+		component: Guest
 	},
 	{
 		title: '工作记录',
 		icon: <ProjectOutlined />,
 		key: '/home/work',
 		subs: [
-			{ key: '/home/display/carousel', title: '轮播图', icon: '' },
+			{ key: '/home/work/list', title: '记录列表', icon: '', component: WorkList },
+			{ key: '/home/work/add', title: '新增记录', icon: '', component: AddWork },
+			{ key: '/home/work/edit', title: '编辑记录', icon: '', component: EditWork }
 		]
 	},
 	{
@@ -145,7 +112,7 @@ export const MENUS = [
 		icon: <ProjectOutlined />,
 		key: '/home/other',
 		subs:[
-			{ key: '/home/other/animation', title: '动画', icon: '', },
+			{ key: '/home/other/animation', title: '动画', icon: '' }
 		]
 	}
 ];
