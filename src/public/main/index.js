@@ -8,12 +8,14 @@ import React, { Component } from 'react';
 import { Layout } from 'antd';
 import SiderNav from '@components/SiderNav';
 import HeaderBar from '@components/HeaderBar';
+import ContentMain from "@components/ContentMain";
+
 const { Sider, Header, Content } = Layout;
 
 export default class Index extends Component {
 	state = {
 		collapsed: false
-	}
+	};
 
 	toggle = () => {
 		// console.log(this)  状态提升后，到底是谁调用的它
@@ -35,7 +37,7 @@ export default class Index extends Component {
 							<HeaderBar collapsed={this.state.collapsed} onToggle={this.toggle}/>
 						</Header>
 						<Content>
-							这里将是内容
+							<ContentMain/>
 						</Content>
 					</Layout>
 				</Layout>
