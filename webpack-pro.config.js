@@ -22,6 +22,7 @@ const MainConfig = {
 		minimize: true,
 		minimizer: [new TerserWebpackPlugin({
 			cache: true,
+			parallel: true,
 		})]
 	},
 	plugins: [
@@ -32,7 +33,7 @@ const MainConfig = {
 				preset: ['default', { discardComments: { removeAll: true } }],
 			},
 			canPrint: true
-		}),
+		})
 	]
 };
 
