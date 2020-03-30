@@ -115,7 +115,7 @@ module.exports = () => {
 				hash: false,
 				// 最小化输出方式
 				minify: {
-					removeAttributeQuotes: true, // 是否删除属性的双引号
+					removeAttributeQuotes: false, // 是否删除属性的双引号
 					collapseWhitespace: true // 是否折叠空白
 				},
 				chunks: ['index']
