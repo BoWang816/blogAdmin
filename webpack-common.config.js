@@ -15,7 +15,7 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
-const packagejson = require("./package.json");
+const packageList = require("./package.json");
 
 const resolve = dir => path.resolve(__dirname, dir);
 
@@ -104,7 +104,7 @@ module.exports = () => {
 
 		entry: {
 			index: './src/index.js',
-			vendor: Object.keys(packagejson.dependencies) // 获取生产环境依赖的库
+			vendor: Object.keys(packageList.dependencies) // 获取生产环境依赖的库
 		},
 
 		output: {
