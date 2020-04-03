@@ -10,8 +10,6 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VersionPlugin = require('generate-version-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// 中间缓存
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
@@ -209,9 +207,6 @@ module.exports = () => {
 
 			// 按需打包
 			new LodashModuleReplacementPlugin(),
-
-			// 首次打包需要49秒，第二次14秒，第三次5秒，但是耗性能
-			new HardSourceWebpackPlugin(),
 
 			// js压缩
 			new ParallelUglifyPlugin({
