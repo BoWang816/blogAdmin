@@ -49,7 +49,9 @@ const devConfig = {
 		// 热加载
 		new webpack.HotModuleReplacementPlugin(),
 
-		new webpackBundleAnalyzer()
+		new webpackBundleAnalyzer({
+			openAnalyzer: false
+		})
 	]
 };
 

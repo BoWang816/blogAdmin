@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"main": "./src/index.js",
 	"scripts": {
-		"start": "npm run clean && cross-env NODE_ENV=qa webpack-dev-server --config=webpack-dev.config.js",
+		"start": "npm run clean && cross-env NODE_ENV=qa webpack-dev-server --config=webpack-dev.config.js --open",
 		"build": "npm run clean && cross-env NODE_ENV=production webpack --config=webpack-pro.config.js",
 		"clean": "rimraf admin",
 		"analyse": "webpack --profile --json > stats.json"
