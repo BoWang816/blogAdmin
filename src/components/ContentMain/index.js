@@ -24,7 +24,7 @@ export default class ContentMain extends Component {
 			children.push(<PrivateRoute exact path={item.key} component={item.component}/>)
 		});
         return (
-            <section style={{ padding: 16, position: 'relative' }}>
+            <section style={{ padding: 20, position: 'relative' }}>
 				<Switch>
 					{children}
 					<Redirect exact from="/" to="/home"/>
