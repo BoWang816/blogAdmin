@@ -19,7 +19,8 @@
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-router-dom": "^5.1.2",
-		"wbaxios": "^1.0.0"
+		"wbaxios": "^1.0.0",
+		"react-draft-wysiwyg": "^1.14.4"
 	},
 	"author": "bo.wang",
 	"private": true,
@@ -52,6 +53,9 @@
 		"cross-env": "^7.0.2",
 		"css-loader": "^3.4.2",
 		"cssnano": "^4.1.10",
+		"draft-js": "^0.11.5",
+		"draftjs-to-html": "^0.9.1",
+		"draftjs-to-markdown": "^0.6.0",
 		"eslint": "^6.8.0",
 		"eslint-config-airbnb": "^18.1.0",
 		"eslint-config-prettier": "^6.10.1",

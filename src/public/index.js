@@ -7,7 +7,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from '@components/PrivateRouter';
-
+import '@assets/css/common.less';
 import Login from './login';
 import Index from './main';
 

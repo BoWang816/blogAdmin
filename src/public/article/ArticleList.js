@@ -9,8 +9,6 @@ import React, { Component } from 'react';
 import { Card, Form, Button, Input, Select, DatePicker, List } from 'antd';
 import { SearchOutlined, CloseCircleOutlined, MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 
-import './style.less';
-
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 const blank = ' ';

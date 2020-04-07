@@ -151,3 +151,5 @@ export const MENUS = [
 		subs: [{ key: '/home/other/animation', title: '动画', icon: '' }],
 	},
 ];
+
+export const Black = ' ';
