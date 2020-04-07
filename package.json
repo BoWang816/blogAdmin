@@ -12,6 +12,7 @@
 	},
 	"dependencies": {
 		"antd": "^4.0.4",
+		"@ant-design/icons": "^4.0.5",
 		"axios": "^0.19.2",
 		"mobx": "^5.15.4",
 		"mobx-react": "^6.1.8",
@@ -23,7 +24,6 @@
 	"author": "bo.wang",
 	"private": true,
 	"devDependencies": {
-		"@ant-design/icons": "^4.0.5",
 		"@babel/core": "^7.8.7",
 		"@babel/helper-module-imports": "^7.8.3",
 		"@babel/plugin-proposal-class-properties": "^7.8.3",
