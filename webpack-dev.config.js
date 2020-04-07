@@ -50,7 +50,8 @@ const devConfig = {
 		new webpack.HotModuleReplacementPlugin(),
 
 		new webpackBundleAnalyzer({
-			openAnalyzer: false
+			openAnalyzer: false,
+			analyzerPort: 8899
 		})
 	]
 };

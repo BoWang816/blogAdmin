@@ -3,9 +3,10 @@
 	"version": "0.0.1",
 	"main": "./src/index.js",
 	"scripts": {
-		"start": "npm run clean && cross-env NODE_ENV=qa webpack-dev-server --config=webpack-dev.config.js --open --inline",
-		"build": "npm run clean && cross-env NODE_ENV=production webpack --config=webpack-pro.config.js",
+		"start": "npm run clean && npm run lint && cross-env NODE_ENV=qa webpack-dev-server --config=webpack-dev.config.js --open --inline",
+		"build": "npm run clean && npm run lint && cross-env NODE_ENV=production webpack --config=webpack-pro.config.js",
 		"clean": "rimraf admin",
+		"lint": "eslint src",
 		"analyse": "webpack --profile --json > stats.json"
 	},
 	"dependencies": {
@@ -64,6 +65,7 @@
 		"history": "^4.10.1",
 		"html-webpack-plugin": "^3.2.0",
 		"html-withimg-loader": "^0.1.16",
+		"husky": "^4.2.3",
 		"leancloud-storage": "^4.5.1",
 		"less": "^3.11.1",
 		"less-loader": "^5.0.0",
@@ -75,6 +77,7 @@
 		"optimize-css-assets-webpack-plugin": "^5.0.3",
 		"postcss-import": "^12.0.1",
 		"postcss-loader": "^3.0.0",
+		"pretty-quick": "^2.0.1",
 		"react-loadable": "^5.5.0",
 		"resolve-url-loader": "^3.1.1",
 		"rimraf": "^3.0.2",
@@ -99,6 +102,20 @@
 		"react",
 		"blog"
 	],
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
+	},
+	"lint-staged": {
+		"src/**/*": [
+			"eslint --fix",
+			"pretty-quick —-staged",
+			"prettier --write",
+			"git add ."
+		]
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/BoWang816/blogWeb"

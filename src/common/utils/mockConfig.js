@@ -72,7 +72,6 @@ function prefixer(prefix, obj) {
 
 const log = (msg, color = '32m') => {
 	console.log('-'.repeat(msg.length + 2));
-	console.log('\033[40;'+ color +' '+ msg +' \033[0m');;
 	console.log('-'.repeat(msg.length + 2));
 };
 
