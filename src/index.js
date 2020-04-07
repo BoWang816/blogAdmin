@@ -9,16 +9,15 @@ import ReactDOM from 'react-dom';
 import { HashRouter as Router } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import { ConfigProvider } from 'antd';
-import zh_CN from 'antd/lib/locale-provider/zh_CN';
-import history from "@utils/history";
-import store from './store'
+import history from '@utils/history';
+import store from './store';
 import Main from './public';
 
 ReactDOM.render(
 	<Router history={history}>
-		<ConfigProvider locale={zh_CN}>
+		<ConfigProvider>
 			<Provider {...store}>
-				<Main/>
+				<Main />
 			</Provider>
 		</ConfigProvider>
 	</Router>,

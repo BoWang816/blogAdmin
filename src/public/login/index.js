@@ -6,16 +6,14 @@
  */
 import React, { Component } from 'react';
 import { Form, Input, Button } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { withRouter } from 'react-router-dom';
 import { inject } from 'mobx-react';
 import './style.less';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
 @withRouter
 @inject('appStore')
-
-export default class Login extends Component {
-
+class Login extends Component {
 	onFinish = values => {
 		console.log('Success:', values);
 		// const users = this.props.appStore.users;
@@ -27,24 +25,15 @@ export default class Login extends Component {
 		this.props.history.push(from);
 	};
 
-    render() {
-        return (
+	render() {
+		return (
 			<section className="login-area">
-				<Form
-					name="normal_login"
-					className="login-form"
-					initialValues={{ remember: true }}
-					onFinish={this.onFinish}>
-					<Form.Item
-						name="username"
-						rules={[{ required: true, message: 'Please input your Username!' }]}>
+				<Form name="normal_login" className="login-form" initialValues={{ remember: true }} onFinish={this.onFinish}>
+					<Form.Item name="username" rules={[{ required: true, message: 'Please input your Username!' }]}>
 						<Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
 					</Form.Item>
 					<Form.Item name="password" rules={[{ required: true, message: 'Please input your Password!' }]}>
-						<Input
-							prefix={<LockOutlined className="site-form-item-icon" />}
-							type="password"
-							placeholder="Password"/>
+						<Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Password" />
 					</Form.Item>
 
 					<Form.Item>
@@ -54,6 +43,7 @@ export default class Login extends Component {
 					</Form.Item>
 				</Form>
 			</section>
-        );
-    };
+		);
+	}
 }
+export default Login;

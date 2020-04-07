@@ -6,30 +6,30 @@
  */
 import React, { Component } from 'react';
 import { withRouter, Switch, Redirect } from 'react-router-dom';
+import { MENUS } from '@constants';
 import PrivateRoute from '../PrivateRouter';
-import { MENUS } from "@constants";
 
 @withRouter
-export default class ContentMain extends Component {
-
-    render() {
-    	// 路由统一管理
+class ContentMain extends Component {
+	render() {
+		// 路由统一管理
 		const children = [];
 		MENUS.forEach(item => {
 			if (item.subs && item.subs.length) {
 				item.subs.forEach(son => {
-					children.push(<PrivateRoute exact path={son.key} component={son.component}/>)
+					children.push(<PrivateRoute exact path={son.key} component={son.component} />);
 				});
 			}
-			children.push(<PrivateRoute exact path={item.key} component={item.component}/>)
+			children.push(<PrivateRoute exact path={item.key} component={item.component} />);
 		});
-        return (
-            <section style={{ padding: 20, position: 'relative' }}>
+		return (
+			<section style={{ padding: 20, position: 'relative' }}>
 				<Switch>
 					{children}
-					<Redirect exact from="/" to="/home"/>
+					<Redirect exact from="/" to="/home" />
 				</Switch>
 			</section>
-        );
-    };
+		);
+	}
 }
+export default ContentMain;

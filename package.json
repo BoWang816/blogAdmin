@@ -3,11 +3,12 @@
 	"version": "0.0.1",
 	"main": "./src/index.js",
 	"scripts": {
-		"start": "npm run clean && npm run lint && cross-env NODE_ENV=qa webpack-dev-server --config=webpack-dev.config.js --open --inline",
-		"build": "npm run clean && npm run lint && cross-env NODE_ENV=production webpack --config=webpack-pro.config.js",
+		"start": "npm run precommit && cross-env NODE_ENV=qa webpack-dev-server --config=webpack-dev.config.js --open --inline",
+		"build": "npm run precommit && cross-env NODE_ENV=production webpack --config=webpack-pro.config.js",
 		"clean": "rimraf admin",
+		"style": "stylelint 'src/**/*.less' --fix",
 		"lint": "eslint src",
-		"analyse": "webpack --profile --json > stats.json"
+		"precommit": "npm run clean && npm run lint && npm run style"
 	},
 	"dependencies": {
 		"antd": "^4.0.4",
@@ -52,11 +53,15 @@
 		"css-loader": "^3.4.2",
 		"cssnano": "^4.1.10",
 		"eslint": "^6.8.0",
+		"eslint-config-airbnb": "^18.1.0",
+		"eslint-config-prettier": "^6.10.1",
 		"eslint-config-react-app": "^5.2.0",
+		"eslint-import-resolver-webpack": "^0.12.1",
 		"eslint-loader": "^3.0.3",
 		"eslint-plugin-flowtype": "^4.6.0",
 		"eslint-plugin-import": "^2.20.1",
 		"eslint-plugin-jsx-a11y": "^6.2.3",
+		"eslint-plugin-prettier": "^3.1.2",
 		"eslint-plugin-react": "^7.19.0",
 		"eslint-plugin-react-hooks": "^2.5.0",
 		"file-loader": "^5.1.0",
@@ -78,12 +83,14 @@
 		"optimize-css-assets-webpack-plugin": "^5.0.3",
 		"postcss-import": "^12.0.1",
 		"postcss-loader": "^3.0.0",
+		"prettier": "^2.0.4",
 		"pretty-quick": "^2.0.1",
 		"react-loadable": "^5.5.0",
 		"resolve-url-loader": "^3.1.1",
 		"rimraf": "^3.0.2",
 		"speed-measure-webpack-plugin": "^1.3.1",
 		"style-loader": "^1.1.3",
+		"stylelint": "^13.3.0",
 		"svg-sprite-loader": "^4.2.1",
 		"svg-transform-loader": "^2.0.8",
 		"svgo-loader": "^2.2.1",
@@ -109,10 +116,9 @@
 		}
 	},
 	"lint-staged": {
-		"src/**/*": [
-			"eslint --fix",
-			"pretty-quick —-staged",
+		"src/**/*.{js,less}": [
 			"prettier --write",
+			"pretty-quick —-staged",
 			"git add ."
 		]
 	},

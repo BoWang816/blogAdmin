@@ -11,24 +11,24 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
 class LoadProgressComponent extends React.Component {
-	componentWillMount(){
+	componentWillMount() {
 		NProgress.start();
 	}
-	componentWillUnmount(){
+
+	componentWillUnmount() {
 		NProgress.done();
 	}
-	render () {
-		return (
-			<div/>
-		)
+
+	render() {
+		return <div />;
 	}
 }
 
 const LoadProgress = component => {
 	return Loadable({
 		loader: component,
-		loading: ()=><LoadProgressComponent/>
-	})
+		loading: () => <LoadProgressComponent />,
+	});
 };
 
 export default LoadProgress;

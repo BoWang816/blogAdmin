@@ -7,7 +7,8 @@
  */
 
 import LoadProgress from '@utils/loadProgress';
-const Home = LoadProgress(()=>import('./home'));
+
+const Home = LoadProgress(() => import('./home'));
 const ReadStatistics = LoadProgress(() => import('./dashboard/ReadStatistics'));
 const TrafficStatistics = LoadProgress(() => import('./dashboard/TrafficStatistics'));
 
@@ -58,5 +59,5 @@ export {
 	Resume,
 	WorkList,
 	AddWork,
-	EditWork
-}
+	EditWork,
+};
