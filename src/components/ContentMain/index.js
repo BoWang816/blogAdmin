@@ -17,10 +17,10 @@ class ContentMain extends Component {
 		MENUS.forEach(item => {
 			if (item.subs && item.subs.length) {
 				item.subs.forEach(son => {
-					children.push(<PrivateRoute exact path={son.key} component={son.component} />);
+					children.push(<PrivateRoute key={son.key} exact path={son.key} component={son.component} />);
 				});
 			}
-			children.push(<PrivateRoute exact path={item.key} component={item.component} />);
+			children.push(<PrivateRoute key={item.key} exact path={item.key} component={item.component} />);
 		});
 		return (
 			<section style={{ padding: 20, position: 'relative' }}>

@@ -149,6 +149,7 @@ module.exports = () => {
 				'@constants': resolve('src/common/constants'),
 				'@assets': resolve('src/assets'),
 				'@utils': resolve('src/common/utils'),
+				'@http': resolve('src/common/http'),
 			},
 			extensions: ['.js', '.jsx', '.ts', '.tsx'],
 			modules: [resolve(__dirname, './src'), 'node_modules'],

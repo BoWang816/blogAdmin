@@ -50,7 +50,7 @@
 			}
 		],
 		"import/extensions": [2, "never", { "web.js": "never", "json": "never" }],
-		"import/no-unresolved": [2, { "ignore": ["antd-mobile"] }],
+		"import/no-unresolved": [2, { "ignore": ["antd"] }],
 		"no-plusplus": 0,
 		"jsx-a11y/label-has-for": 0,
 		"quotes": ["error", "single"],

@@ -19,7 +19,7 @@ const config = {
 	serverPort: 4000,
 
 	// 是否使用mock数据
-	useMock: false
+	useMock: true,
 };
 
 config.apiUri = config.useMock ? '127.0.0.1' : config.apiUri;

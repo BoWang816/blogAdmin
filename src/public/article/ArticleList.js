@@ -8,17 +8,36 @@
 import React, { Component } from 'react';
 import { Card, Form, Button, Input, Select, DatePicker, List } from 'antd';
 import { SearchOutlined, CloseCircleOutlined, MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
+import { Black } from '@constants';
+import http from '@http';
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
-const blank = ' ';
 
 export default class ArticleList extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			listData: [],
+		};
+	}
+
 	// 搜索
 	onFinish = () => {};
 
 	// 搜索失败
 	onFinishFailed = () => {};
+
+	componentDidMount() {
+		http({
+			url: '/articleList',
+			method: 'GET',
+		}).then(res => {
+			this.setState({
+				listData: res.data.data,
+			});
+		});
+	}
 
 	render() {
 		const IconText = ({ icon, text }) => (
@@ -28,48 +47,36 @@ export default class ArticleList extends Component {
 			</span>
 		);
 
-		const listData = [];
-		for (let i = 0; i < 23; i++) {
-			listData.push({
-				href: 'http://ant.design',
-				title: `ant design part ${i}`,
-				avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-				description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-				content:
-					'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-			});
-		}
-
 		return (
 			<div>
 				<Card>
-					<Form name="basic" layout="inline" initialValues={{ remember: true }} onFinish={this.onFinish} onFinishFailed={this.onFinishFailed}>
-						<Form.Item label="文章标题" name="articleTitle">
+					<Form layout="inline" initialValues={{ remember: true }} onFinish={this.onFinish} onFinishFailed={this.onFinishFailed}>
+						<Form.Item label="文章标题" title="articleTitle">
 							<Input />
 						</Form.Item>
 
-						<Form.Item label="文章内容" name="articleContent">
+						<Form.Item label="文章内容" title="articleContent">
 							<Input />
 						</Form.Item>
 
-						<Form.Item label="文章类型" name="articleType">
+						<Form.Item label="文章类型" title="articleType">
 							<Select defaultValue="lucy" style={{ width: 120 }} allowClear>
 								<Option value="lucy">Lucy</Option>
 							</Select>
 						</Form.Item>
-						<Form.Item label="文章标签" name="articleTag">
+						<Form.Item label="文章标签" title="articleTag">
 							<Select defaultValue="lucy" style={{ width: 120 }} allowClear>
 								<Option value="lucy">Lucy</Option>
 							</Select>
 						</Form.Item>
-						<Form.Item label="发布时间" name="publishTime">
+						<Form.Item label="发布时间" title="publishTime">
 							<RangePicker />
 						</Form.Item>
-						<Form.Item name="search">
+						<Form.Item title="search">
 							<Button type="primary" shape="round" icon={<SearchOutlined />}>
 								搜索
 							</Button>
-							{blank}
+							{Black}
 							<Button shape="round" icon={<CloseCircleOutlined />}>
 								重置
 							</Button>
@@ -87,7 +94,7 @@ export default class ArticleList extends Component {
 							},
 							pageSize: 3,
 						}}
-						dataSource={listData}
+						dataSource={this.state.listData}
 						renderItem={item => (
 							<List.Item
 								key={item.title}

@@ -8,7 +8,8 @@
 			"@utils/*": ["./src/common/utils/*"],
 			"@assets/*": ["./src/assets/*"],
 			"@components/*": ["./src/components/*"],
-			"@constants": ["./src/common/constants"]
+			"@constants": ["./src/common/constants"],
+			"@http": ["./src/common/http"]
 		}
 	},
 	"include": ["./src/**/*"],
