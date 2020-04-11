@@ -10,7 +10,7 @@ const config = {
 	apiPrefix: '/blog-web/1.0',
 
 	// 后端API地址
-	apiUri: 'http://qa-ual.shuyun.com',
+	apiUri: 'https://www.wangboweb.site',
 
 	// 后端API端口
 	apiPort: 80,
