@@ -151,5 +151,7 @@ export const MENUS = [
 		subs: [{ key: '/home/other/animation', title: '动画', icon: '' }],
 	},
 ];
+// 标签颜色列表
+export const TAG_COLOR = ['magenta', 'red', 'volcano', 'orange', 'gold', 'green', 'cyan', 'blue', 'geekblue', 'purple'];
 
 export const Black = ' ';

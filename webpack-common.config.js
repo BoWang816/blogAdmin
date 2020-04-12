@@ -109,6 +109,10 @@ module.exports = () => {
 			],
 		},
 
+		externals: {
+			bizcharts: 'BizCharts',
+		},
+
 		entry: {
 			index: './src/index.js',
 			vendor: Object.keys(packageList.dependencies), // 获取生产环境依赖的库
@@ -157,7 +161,7 @@ module.exports = () => {
 
 		plugins: [
 			new HtmlWebpackPlugin({
-				title: "wb 's blog admin",
+				title: 'blog admin',
 				template: './src/public/index.html',
 				// 打包出来的文件名称
 				filename: 'index.html',
