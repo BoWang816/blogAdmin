@@ -34,7 +34,7 @@ export default class ArticleList extends Component {
 			method: 'GET',
 		}).then(res => {
 			this.setState({
-				listData: res.data.data,
+				listData: res.data,
 			});
 		});
 	}

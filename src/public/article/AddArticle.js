@@ -6,13 +6,14 @@
  * @github https://github.com/BoWang816
  */
 import React, { Component } from 'react';
-import { Card, Row, Col, BackTop, Form, Input, Button, Select, Checkbox, DatePicker, Upload } from 'antd';
+import { Card, Row, Col, Form, Input, Button, Select, Checkbox, DatePicker, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
 import draftToMarkdown from 'draftjs-to-markdown';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { EditorState, convertToRaw } from 'draft-js';
+import BackTop from '@components/BackTop';
 import CustomBreadcrumb from '@components/CustomBreadcrumb';
 import { Black } from '@constants';
 import './style.less';
@@ -128,7 +129,7 @@ export default class ArticleList extends Component {
 					</Row>
 				</Card>
 
-				<BackTop visibilityHeight={200} style={{ right: 50 }} />
+				<BackTop />
 			</div>
 		);
 	}
