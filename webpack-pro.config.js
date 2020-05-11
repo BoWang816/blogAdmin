@@ -23,21 +23,30 @@ const MainConfig = {
 		minimize: true,
 		minimizer: [
 			new TerserWebpackPlugin({
+				// 使用缓存
 				cache: true,
+				// 多进程压缩
 				parallel: true,
+				terserOptions: {
+					output: {
+						comments: false,
+					},
+				},
+				extractComments: false,
+			}),
+
+			// 压缩css
+			new OptimizeCssAssetsPlugin({
+				assetNameRegExp: /\.css$/g,
+				cssProcessor: require('cssnano'),
+				cssProcessorOptions: {
+					discardComments: { removeAll: true },
+					minifyGradients: true,
+				},
+				canPrint: true,
 			}),
 		],
 	},
-	plugins: [
-		// css压缩
-		new OptimizeCssAssetsPlugin({
-			cssProcessor: require('cssnano'),
-			cssProcessorPluginOptions: {
-				preset: ['default', { discardComments: { removeAll: true } }],
-			},
-			canPrint: true,
-		}),
-	],
 };
 
 // smp.wrap loader所用打包时间

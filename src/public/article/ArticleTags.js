@@ -12,7 +12,7 @@ import { observer } from 'mobx-react';
 import CustomBreadcrumb from '@components/CustomBreadcrumb';
 import { Form, Input, Card, Badge, Modal, Select, Tag, Button } from 'antd';
 import { Chart, Axis, Geom, Coord, Label, Legend } from 'bizcharts';
-import { TwitterOutlined, SettingOutlined } from '@ant-design/icons';
+import { AiOutlineSetting, AiOutlineTag } from 'react-icons/ai';
 import { View } from '@antv/data-set';
 import { TAG_COLOR } from '@constants';
 
@@ -136,14 +136,14 @@ class ArticleTags extends Component {
 			<div>
 				<CustomBreadcrumb arr={['文章', '标签']} />
 				<Card>
-					<Button type="primary" shape="round" style={{ margin: '0 10px 20px 0' }} icon={<SettingOutlined />} onClick={this.showTagManageDialog}>
+					<Button type="primary" shape="round" style={{ margin: '0 10px 20px 0' }} icon={<AiOutlineSetting />} onClick={this.showTagManageDialog}>
 						标签管理
 					</Button>
 
 					{tagsList.map(item => {
 						return (
 							<Tag
-								icon={<TwitterOutlined />}
+								icon={<AiOutlineTag />}
 								key={item.id}
 								onChange={this.showTagManageDialog}
 								color={TAG_COLOR[Math.floor(Math.random() * 10 + 1)]}

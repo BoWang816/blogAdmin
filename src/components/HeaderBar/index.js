@@ -5,21 +5,16 @@
  * @github https://github.com/BoWang816
  */
 import React, { Component } from 'react';
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
+import { AiOutlineMenuUnfold, AiOutlineMenuFold } from 'react-icons/ai';
 
 export default class HeaderBar extends Component {
-
 	toggle = () => {
 		this.props.onToggle();
 	};
 
-    render() {
+	render() {
 		const { collapsed } = this.props;
 
-		return (
-            <span>
-				{collapsed ? <MenuUnfoldOutlined onClick={this.toggle}/> : <MenuFoldOutlined  onClick={this.toggle}/>}
-            </span>
-        );
-    };
+		return <span>{collapsed ? <AiOutlineMenuUnfold onClick={this.toggle} /> : <AiOutlineMenuFold onClick={this.toggle} />}</span>;
+	}
 }

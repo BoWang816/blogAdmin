@@ -5,14 +5,15 @@
  * @github https://github.com/BoWang816
  */
 import React, { Component } from 'react';
-import { ArrowUpOutlined } from '@ant-design/icons';
+
+import { AiOutlineArrowUp } from 'react-icons/ai';
 import { BackTop } from 'antd';
 
 export default class index extends Component {
 	render() {
 		return (
 			<BackTop visibilityHeight={200} style={{ right: 50 }}>
-				<ArrowUpOutlined style={{ fontSize: '40px', color: '#CCC' }} />
+				<AiOutlineArrowUp style={{ fontSize: '40px', color: '#CCC' }} />
 			</BackTop>
 		);
 	}

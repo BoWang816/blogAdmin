@@ -7,7 +7,7 @@
  */
 import React, { Component } from 'react';
 import { Card, Form, Button, Input, Select, DatePicker, List } from 'antd';
-import { SearchOutlined, CloseCircleOutlined, MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
+import { AiOutlineSearch, AiOutlineCloseCircle, AiOutlineMessage, AiOutlineLike, AiOutlineStar } from 'react-icons/ai';
 import { Black } from '@constants';
 import http from '@http';
 
@@ -73,11 +73,11 @@ export default class ArticleList extends Component {
 							<RangePicker />
 						</Form.Item>
 						<Form.Item title="search">
-							<Button type="primary" shape="round" icon={<SearchOutlined />}>
+							<Button type="primary" shape="round" icon={<AiOutlineSearch />}>
 								搜索
 							</Button>
 							{Black}
-							<Button shape="round" icon={<CloseCircleOutlined />}>
+							<Button shape="round" icon={<AiOutlineCloseCircle />}>
 								重置
 							</Button>
 						</Form.Item>
@@ -99,9 +99,9 @@ export default class ArticleList extends Component {
 							<List.Item
 								key={item.title}
 								actions={[
-									<IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-									<IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-									<IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
+									<IconText icon={AiOutlineStar} text="156" key="list-vertical-star-o" />,
+									<IconText icon={AiOutlineLike} text="156" key="list-vertical-like-o" />,
+									<IconText icon={AiOutlineMessage} text="2" key="list-vertical-message" />,
 								]}
 								extra={<img width={272} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}>
 								<List.Item.Meta title={<a href={item.href}>{item.title}</a>} description={item.description} />

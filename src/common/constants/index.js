@@ -8,21 +8,21 @@
 // 菜单列表
 import React from 'react';
 import {
-	HomeOutlined,
-	EyeOutlined,
-	IdcardOutlined,
-	DashboardOutlined,
-	SettingOutlined,
-	ProjectOutlined,
-	CloudOutlined,
-	BookOutlined,
-	GithubOutlined,
-	TagsOutlined,
-	FolderOpenOutlined,
-	DatabaseOutlined,
-	ContactsOutlined,
-	ReadOutlined,
-} from '@ant-design/icons';
+	AiOutlineHome,
+	AiOutlineEye,
+	AiOutlineIdcard,
+	AiOutlineDashboard,
+	AiOutlineSetting,
+	AiOutlineProject,
+	AiOutlineCloud,
+	AiOutlineBook,
+	AiOutlineGithub,
+	AiOutlineTags,
+	AiOutlineFolderOpen,
+	AiOutlineDatabase,
+	AiOutlineContacts,
+	AiOutlineRead,
+} from 'react-icons/ai';
 import {
 	Home,
 	TrafficStatistics,
@@ -50,22 +50,22 @@ import {
 export const MENUS = [
 	{
 		title: '首页',
-		icon: <HomeOutlined />,
+		icon: <AiOutlineHome />,
 		key: '/home',
 		component: Home,
 	},
 	{
 		title: '监控面板',
-		icon: <DashboardOutlined />,
+		icon: <AiOutlineDashboard />,
 		key: '/home/dashboard',
 		subs: [
-			{ key: '/home/dashboard/view', title: '访问量监控', icon: <EyeOutlined />, component: TrafficStatistics },
-			{ key: '/home/dashboard/read', title: '阅读量监控', icon: <ReadOutlined />, component: ReadStatistics },
+			{ key: '/home/dashboard/view', title: '访问量监控', icon: <AiOutlineEye />, component: TrafficStatistics },
+			{ key: '/home/dashboard/read', title: '阅读量监控', icon: <AiOutlineRead />, component: ReadStatistics },
 		],
 	},
 	{
 		title: '文章管理',
-		icon: <ReadOutlined />,
+		icon: <AiOutlineRead />,
 		key: '/home/article',
 		subs: [
 			{ key: '/home/article/list', title: '文章列表', icon: '', component: ArticleList },
@@ -75,19 +75,19 @@ export const MENUS = [
 	},
 	{
 		title: '博客标签',
-		icon: <TagsOutlined />,
+		icon: <AiOutlineTags />,
 		key: '/home/blogTag',
 		component: ArticleTags,
 	},
 	{
 		title: '博客分类',
-		icon: <FolderOpenOutlined />,
+		icon: <AiOutlineFolderOpen />,
 		key: '/home/blogType',
 		component: ArticleTypes,
 	},
 	{
 		title: '日记本',
-		icon: <BookOutlined />,
+		icon: <AiOutlineBook />,
 		key: '/home/diary',
 		subs: [
 			{ key: '/home/diary/list', title: '日记墙', icon: '', component: DiaryList },
@@ -97,19 +97,19 @@ export const MENUS = [
 	},
 	{
 		title: '七牛云',
-		icon: <CloudOutlined />,
+		icon: <AiOutlineCloud />,
 		key: '/home/qiniuCloud',
 		component: Cloud,
 	},
 	{
 		title: '书签导航',
-		icon: <DatabaseOutlined />,
+		icon: <AiOutlineDatabase />,
 		key: '/home/booksNav',
 		component: BooksNav,
 	},
 	{
 		title: '个人设置',
-		icon: <SettingOutlined />,
+		icon: <AiOutlineSetting />,
 		key: '/home/setting',
 		subs: [
 			{ key: '/home/setting/info', title: '个人资料', icon: '', component: Info },
@@ -118,25 +118,25 @@ export const MENUS = [
 	},
 	{
 		title: 'Github信息统计',
-		icon: <GithubOutlined />,
+		icon: <AiOutlineGithub />,
 		key: '/home/github',
 		component: Github,
 	},
 	{
 		title: '简历管理',
-		icon: <IdcardOutlined />,
+		icon: <AiOutlineIdcard />,
 		key: '/home/resume',
 		component: Resume,
 	},
 	{
 		title: '留言板',
-		icon: <ContactsOutlined />,
+		icon: <AiOutlineContacts />,
 		key: '/home/guest',
 		component: Guest,
 	},
 	{
 		title: '工作记录',
-		icon: <ProjectOutlined />,
+		icon: <AiOutlineProject />,
 		key: '/home/work',
 		subs: [
 			{ key: '/home/work/list', title: '记录列表', icon: '', component: WorkList },
@@ -146,7 +146,7 @@ export const MENUS = [
 	},
 	{
 		title: '其它',
-		icon: <ProjectOutlined />,
+		icon: <AiOutlineProject />,
 		key: '/home/other',
 		subs: [{ key: '/home/other/animation', title: '动画', icon: '' }],
 	},

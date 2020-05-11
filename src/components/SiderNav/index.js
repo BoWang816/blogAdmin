@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import { MENUS } from '@constants';
-import { HeartOutlined } from '@ant-design/icons';
+import { AiOutlineHeart } from 'react-icons/ai';
 import CustomMenu from '../CustomerMenu';
 
 const styles = {
@@ -22,11 +22,16 @@ const styles = {
 class SiderNav extends React.Component {
 	render() {
 		return (
-			<div style={{ height: '100vh', overflowY: 'scroll' }}>
-				<div style={styles.logo}>{!this.props.collapsed ? 'blog Admin' : <HeartOutlined />}</div>
+			<div
+				style={{
+					height: '100vh',
+					overflowY: 'scroll',
+				}}>
+				<div style={styles.logo}>{!this.props.collapsed ? 'blog Admin' : <AiOutlineHeart />}</div>
 				<CustomMenu menus={MENUS} />
 			</div>
 		);
 	}
 }
+
 export default SiderNav;

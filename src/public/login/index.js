@@ -6,7 +6,7 @@
  */
 import React, { Component } from 'react';
 import { Form, Input, Button } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { AiOutlineUser, AiOutlineLock } from 'react-icons/ai';
 import { withRouter } from 'react-router-dom';
 import { inject } from 'mobx-react';
 import './style.less';
@@ -30,10 +30,10 @@ class Login extends Component {
 			<section className="login-area">
 				<Form name="normal_login" className="login-form" initialValues={{ remember: true }} onFinish={this.onFinish}>
 					<Form.Item name="username" rules={[{ required: true, message: 'Please input your Username!' }]}>
-						<Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+						<Input prefix={<AiOutlineUser className="site-form-item-icon" />} placeholder="Username" />
 					</Form.Item>
 					<Form.Item name="password" rules={[{ required: true, message: 'Please input your Password!' }]}>
-						<Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Password" />
+						<Input prefix={<AiOutlineLock className="site-form-item-icon" />} type="password" placeholder="Password" />
 					</Form.Item>
 
 					<Form.Item>

@@ -33,8 +33,6 @@ module.exports = () => {
 					test: /\.(jsx|js)?$/,
 					// thread-loader：放置在这个 loader 之后的 loader 就会在一个单独的 worker 池中运行
 					use: ['thread-loader', 'cache-loader', 'babel-loader', 'eslint-loader'],
-					// 不使用cache-loader的时候，可以在babel-loader的options中设置cacheDirectory: true
-					include: [path.resolve(__dirname, 'src')],
 					exclude: resolve('node_modules'),
 				},
 				{
@@ -215,9 +213,6 @@ module.exports = () => {
 			new ParallelUglifyPlugin({
 				uglifyJS: {},
 				test: /.js$/g, // 匹配哪些文件需要被 ParallelUglifyPlugin 压缩，默认是 /.js$/.
-				include: [], // 包含被 ParallelUglifyPlugin 压缩的文件，默认为 [].
-				exclude: [], // 不被 ParallelUglifyPlugin 压缩的文件，默认为 [].
-				cacheDir: '', // 缓存压缩后的结果，下次遇到一样的输入时直接从缓存中获取压缩后的结果并返回
 				workerCount: '', // 开启几个子进程去并发的执行压缩。默认是当前运行电脑的 CPU 核数减去1。
 				sourceMap: false,
 			}),

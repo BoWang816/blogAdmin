@@ -7,7 +7,7 @@
  */
 import React, { Component } from 'react';
 import { Card, Row, Col, Form, Input, Button, Select, Upload } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
 import draftToMarkdown from 'draftjs-to-markdown';
@@ -88,7 +88,7 @@ export default class EditArticle extends Component {
 								<Form.Item label="文章封面" name="articleCover">
 									<Upload {...props2}>
 										<Button>
-											<UploadOutlined /> Upload
+											<AiOutlineCloudUpload /> Upload
 										</Button>
 									</Upload>
 								</Form.Item>
