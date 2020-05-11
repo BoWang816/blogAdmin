@@ -6,9 +6,8 @@
 		"start": "npm run precommit && cross-env NODE_ENV=qa webpack-dev-server --config=webpack-dev.config.js --open --inline",
 		"build": "npm run precommit && cross-env NODE_ENV=production webpack --config=webpack-pro.config.js",
 		"clean": "rimraf admin",
-		"style": "stylelint 'src/**/*.less' --fix",
 		"lint": "eslint src",
-		"precommit": "npm run clean && npm run lint && npm run style"
+		"precommit": "npm run clean && npm run lint"
 	},
 	"dependencies": {
 		"@antv/data-set": "^0.11.4",
