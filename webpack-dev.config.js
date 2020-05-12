@@ -10,7 +10,6 @@ const path = require('path');
 const merge = require('webpack-merge');
 const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
-
 const smp = new SpeedMeasurePlugin();
 
 const commonConfig = require('./webpack-common.config');

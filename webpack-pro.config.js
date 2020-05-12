@@ -27,12 +27,7 @@ const MainConfig = {
 				cache: true,
 				// 多进程压缩
 				parallel: true,
-				terserOptions: {
-					output: {
-						comments: false,
-					},
-				},
-				extractComments: false,
+				exclude: 'node_modules'
 			}),
 
 			// 压缩css

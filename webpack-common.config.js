@@ -10,9 +10,11 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VersionPlugin = require('generate-version-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const HappyPack = require('happypack');
+
 const packageList = require('./package.json');
 
 const resolve = dir => path.resolve(__dirname, dir);
@@ -32,7 +34,7 @@ module.exports = () => {
 				{
 					test: /\.(jsx|js)?$/,
 					// thread-loader：放置在这个 loader 之后的 loader 就会在一个单独的 worker 池中运行
-					use: ['thread-loader', 'cache-loader', 'babel-loader', 'eslint-loader'],
+					use: ['thread-loader', 'cache-loader', 'babel-loader?cacheDirectory=true', 'eslint-loader'],
 					exclude: resolve('node_modules'),
 				},
 				{
@@ -90,7 +92,10 @@ module.exports = () => {
 				},
 				{
 					test: /\.svg$/,
-					use: [{ loader: 'svg-sprite-loader', options: {} }, 'svg-transform-loader', 'svgo-loader'],
+					use: [{
+						loader: 'svg-sprite-loader',
+						options: {}
+					}, 'svg-transform-loader', 'svgo-loader'],
 				},
 				{
 					test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -124,10 +129,13 @@ module.exports = () => {
 
 		// 从2.69M -> 52.28K
 		optimization: {
+			runtimeChunk: {
+				name: 'manifest',
+			},
 			splitChunks: {
-				chunks: 'async',
+				chunks: 'all',
 				minSize: 30000,
-				minChunks: 2, // 默认值是2, 模块被多少个chunk公共引用才被抽取出来成为commons chunk
+				minChunks: 5, // 默认值是2, 模块被多少个chunk公共引用才被抽取出来成为commons chunk
 				maxAsyncRequests: 5,
 				maxInitialRequests: 3,
 				automaticNameDelimiter: '~',
@@ -139,7 +147,7 @@ module.exports = () => {
 						name: 'vendor',
 						chunks: 'initial',
 						minSize: 0,
-						minChunks: 1, // 最少引入了1次
+						minChunks: 3, // 最少引入了1次
 					},
 				},
 			},
@@ -194,6 +202,19 @@ module.exports = () => {
 				},
 			}),
 
+			new HappyPack({
+				id: 'babel',
+				verbose: true,
+				loaders: [{
+					loader: 'babel-loader',
+					query: {
+						presets: [
+							'env', 'react'
+						]
+					}
+				}]
+			}),
+
 			// 抽离css
 			new MiniCssExtractPlugin({
 				filename: '[name].css',
@@ -209,13 +230,23 @@ module.exports = () => {
 			// 按需打包
 			new LodashModuleReplacementPlugin(),
 
-			// js压缩
 			new ParallelUglifyPlugin({
-				uglifyJS: {},
-				test: /.js$/g, // 匹配哪些文件需要被 ParallelUglifyPlugin 压缩，默认是 /.js$/.
-				workerCount: '', // 开启几个子进程去并发的执行压缩。默认是当前运行电脑的 CPU 核数减去1。
-				sourceMap: false,
-			}),
-		],
+				workerCount: 3, // 开启几个子进程去并发的执行压缩。默认是当前运行电脑的 CPU 核数减去1
+				exclude: 'node_modules',
+				cacheDir: 'cache/',
+				uglifyJS: {
+					output: {
+						beautify: false, // 不需要格式化
+						comments: false, // 不保留注释
+					},
+					warnings: false,
+					compress: {
+						drop_console: true, // 删除所有的 `console` 语句，可以兼容ie浏览器
+						collapse_vars: true, // 内嵌定义了但是只用到一次的变量
+						reduce_vars: true, // 提取出出现多次但是没有定义成变量去引用的静态值
+					}
+				}
+			})
+		]
 	};
 };
