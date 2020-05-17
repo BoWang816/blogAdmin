@@ -32,8 +32,9 @@ class ArticleTags extends Component {
 	/**
 	 * 显示编辑标签弹框
 	 */
-	showTagManageDialog = () => {
+	showTagManageDialog = item => {
 		this.showDialog = true;
+		this.editTag = item;
 	};
 
 	/**
@@ -145,7 +146,7 @@ class ArticleTags extends Component {
 							<Tag
 								icon={<AiOutlineTag />}
 								key={item.id}
-								onChange={this.showTagManageDialog}
+								onClick={this.showTagManageDialog(item)}
 								color={TAG_COLOR[Math.floor(Math.random() * 10 + 1)]}
 								style={{ padding: '4px 8px', margin: '0 10px 20px 0' }}
 								closable
@@ -186,7 +187,7 @@ class ArticleTags extends Component {
 				</Chart>
 
 				<Modal visible={this.showDialog} title="标签管理" onOk={this.handleSaveTag} onCancel={this.handleCancel} cancelText="取消" okText="保存">
-					<TagManage tagList={tagsList} />
+					<TagManage tagList={tagsList} tagInfo={this.editTag} />
 				</Modal>
 			</div>
 		);
@@ -194,11 +195,11 @@ class ArticleTags extends Component {
 }
 
 function TagManage(props) {
-	const { tagList, onFinish, onFinishFailed, handleChangeTag, handleInputNewTag } = props;
+	const { tagInfo, tagList, onFinish, onFinishFailed, handleChangeTag, handleInputNewTag } = props;
 	return (
 		<Form name="basic" initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed}>
 			<Form.Item label="标签名称" name="tagName" rules={[{ required: true, message: '请输入标签名称' }]}>
-				<Input placeholder="请输入标签名称" onChange={handleInputNewTag} />
+				<Input placeholder="请输入标签名称" value={tagInfo.name} onChange={handleInputNewTag} />
 			</Form.Item>
 			<Form.Item label="已有标签" name="tagList" rules={[{ required: true, message: '请选择标签' }]}>
 				<Select placeholder="请选择标签名称" defaultValue={tagList[0] && tagList[0].id} onChange={handleChangeTag}>

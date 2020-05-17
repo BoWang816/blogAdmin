@@ -17,13 +17,35 @@
 	position: absolute;
 	right: -20px;
 }
+.operate-icon {
+	svg {
+		margin: 0 8px;
+		&:first-child {
+			color: deepskyblue;
+		}
+		&:nth-of-type(2) {
+			color: orangered;
+		}
+	}
+}
 
 .ant-badge {
-	margin-right: 20px !important;
-
 	.ant-badge-count {
 		position: absolute;
 		right: -30px;
 		top: -10px;
 	}
+}
+.ant-tag .anticon-close > {
+	svg {
+		font-size: 12px;
+		vertical-align: initial;
+		margin-left: 10px;
+	}
+}
+.ant-card-body {
+	padding-bottom: 4px;
+}
+.ant-form-inline .ant-form-item {
+	margin-bottom: 20px;
 }

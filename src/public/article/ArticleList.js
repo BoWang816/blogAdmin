@@ -10,6 +10,7 @@ import { Card, Form, Button, Input, Select, DatePicker, List } from 'antd';
 import { AiOutlineSearch, AiOutlineCloseCircle, AiOutlineMessage, AiOutlineLike, AiOutlineStar } from 'react-icons/ai';
 import { Black } from '@constants';
 import http from '@http';
+import './style.less';
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
@@ -52,11 +53,11 @@ export default class ArticleList extends Component {
 				<Card>
 					<Form layout="inline" initialValues={{ remember: true }} onFinish={this.onFinish} onFinishFailed={this.onFinishFailed}>
 						<Form.Item label="文章标题" title="articleTitle">
-							<Input />
+							<Input placeholder="请输入文章标题" />
 						</Form.Item>
 
 						<Form.Item label="文章内容" title="articleContent">
-							<Input />
+							<Input placeholder="请输入文章内容" />
 						</Form.Item>
 
 						<Form.Item label="文章类型" title="articleType">

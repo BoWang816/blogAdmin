@@ -92,10 +92,14 @@ module.exports = () => {
 				},
 				{
 					test: /\.svg$/,
-					use: [{
-						loader: 'svg-sprite-loader',
-						options: {}
-					}, 'svg-transform-loader', 'svgo-loader'],
+					use: [
+						{
+							loader: 'svg-sprite-loader',
+							options: {},
+						},
+						'svg-transform-loader',
+						'svgo-loader',
+					],
 				},
 				{
 					test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -110,10 +114,6 @@ module.exports = () => {
 					],
 				},
 			],
-		},
-
-		externals: {
-			bizcharts: 'BizCharts',
 		},
 
 		entry: {
@@ -205,14 +205,14 @@ module.exports = () => {
 			new HappyPack({
 				id: 'babel',
 				verbose: true,
-				loaders: [{
-					loader: 'babel-loader',
-					query: {
-						presets: [
-							'env', 'react'
-						]
-					}
-				}]
+				loaders: [
+					{
+						loader: 'babel-loader',
+						query: {
+							presets: ['env', 'react'],
+						},
+					},
+				],
 			}),
 
 			// 抽离css
@@ -244,9 +244,9 @@ module.exports = () => {
 						drop_console: true, // 删除所有的 `console` 语句，可以兼容ie浏览器
 						collapse_vars: true, // 内嵌定义了但是只用到一次的变量
 						reduce_vars: true, // 提取出出现多次但是没有定义成变量去引用的静态值
-					}
-				}
-			})
-		]
+					},
+				},
+			}),
+		],
 	};
 };
