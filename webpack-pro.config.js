@@ -9,6 +9,8 @@ const merge = require('webpack-merge');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+
 const commonConfig = require('./webpack-common.config');
 
 const smp = new SpeedMeasurePlugin();
@@ -18,16 +20,19 @@ const MainConfig = {
 	// 控制是否生成，以及如何生成 source map，配置项很多，cheap-module-eval-source-map表示原始源代码（仅限行）
 	devtool: 'none',
 
-	// 压缩文件
+	// 代码优化配置
 	optimization: {
-		minimize: true,
 		minimizer: [
+			// 压缩js
 			new TerserWebpackPlugin({
-				// 使用缓存
 				cache: true,
-				// 多进程压缩
 				parallel: true,
-				exclude: 'node_modules'
+				terserOptions: {
+					output: {
+						comments: false
+					}
+				},
+				extractComments: false
 			}),
 
 			// 压缩css
@@ -36,12 +41,20 @@ const MainConfig = {
 				cssProcessor: require('cssnano'),
 				cssProcessorOptions: {
 					discardComments: { removeAll: true },
-					minifyGradients: true,
+					minifyGradients: true
 				},
-				canPrint: true,
+				canPrint: true
 			}),
-		],
-	},
+
+			new FriendlyErrorsPlugin({
+				compilationSuccessInfo: {
+					messages: [
+						'Your application built finished',
+					]
+				}
+			})
+		]
+	}
 };
 
 // smp.wrap loader所用打包时间

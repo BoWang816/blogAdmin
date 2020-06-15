@@ -8,11 +8,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const VersionPlugin = require('generate-version-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const HappyPack = require('happypack');
 
 const packageList = require('./package.json');
@@ -25,12 +22,6 @@ module.exports = () => {
 			// 如果一些第三方模块没有AMD/CommonJS规范版本，可以使用 noParse 来标识这个模块，但是webpack不进行转化和解析
 			// noParse: [],
 			rules: [
-				{
-					enforce: 'pre',
-					test: /\.jsx?$/,
-					use: 'eslint-loader',
-					exclude: resolve('node_modules'),
-				},
 				{
 					test: /\.(jsx|js)?$/,
 					// thread-loader：放置在这个 loader 之后的 loader 就会在一个单独的 worker 池中运行
@@ -127,32 +118,6 @@ module.exports = () => {
 			publicPath: '/',
 		},
 
-		// 从2.69M -> 52.28K
-		optimization: {
-			runtimeChunk: {
-				name: 'manifest',
-			},
-			splitChunks: {
-				chunks: 'all',
-				minSize: 30000,
-				minChunks: 5, // 默认值是2, 模块被多少个chunk公共引用才被抽取出来成为commons chunk
-				maxAsyncRequests: 5,
-				maxInitialRequests: 3,
-				automaticNameDelimiter: '~',
-				name: true,
-				cacheGroups: {
-					vendors: {
-						test: /[\\/]node_modules[\\/]/,
-						priority: 1, // 设置优先级，首先抽离第三方模块
-						name: 'vendor',
-						chunks: 'initial',
-						minSize: 0,
-						minChunks: 3, // 最少引入了1次
-					},
-				},
-			},
-		},
-
 		resolve: {
 			alias: {
 				'@components': resolve('src/components'),
@@ -164,8 +129,12 @@ module.exports = () => {
 			extensions: ['.js', '.jsx', '.ts', '.tsx'],
 			modules: [resolve(__dirname, './src'), 'node_modules'],
 		},
+		externals: [{ 'moment': 'moment' }],
 
 		plugins: [
+			// 清除包,3.0以后不会清除打包出来的根文件夹
+			new CleanWebpackPlugin(),
+
 			new HtmlWebpackPlugin({
 				title: 'blog admin',
 				template: './src/public/index.html',
@@ -177,28 +146,6 @@ module.exports = () => {
 				minify: {
 					removeAttributeQuotes: false, // 是否删除属性的双引号
 					collapseWhitespace: true, // 是否折叠空白
-				},
-			}),
-
-			// 版本信息插件
-			new VersionPlugin({
-				// 指定版本信息数据的绝对路径, 必设项。 [默认值使用数据为插件自身的版本信息]
-				dataPath: path.join(__dirname, './version.json'),
-
-				// 配置version.json 中 的list.type 值文本对应关系 [当前展示的为默认值]
-				type: {
-					'1': {
-						text: '新增',
-						style: 'color: green',
-					},
-					'2': {
-						text: '修复',
-						style: 'color: red',
-					},
-					'3': {
-						text: '优化',
-						style: 'color: orange',
-					},
 				},
 			}),
 
@@ -217,36 +164,14 @@ module.exports = () => {
 
 			// 抽离css
 			new MiniCssExtractPlugin({
+				ignoreOrder: true,
 				filename: '[name].css',
-				chunkFilename: '[name].css',
+				chunkFilename: '[name]_[hash:6].css',
 			}),
 
 			// 打包进度
 			new webpack.ProgressPlugin(),
-
-			// 清除包,3.0以后不会清除打包出来的根文件夹
-			new CleanWebpackPlugin(),
-
-			// 按需打包
-			new LodashModuleReplacementPlugin(),
-
-			new ParallelUglifyPlugin({
-				workerCount: 3, // 开启几个子进程去并发的执行压缩。默认是当前运行电脑的 CPU 核数减去1
-				exclude: 'node_modules',
-				cacheDir: 'cache/',
-				uglifyJS: {
-					output: {
-						beautify: false, // 不需要格式化
-						comments: false, // 不保留注释
-					},
-					warnings: false,
-					compress: {
-						drop_console: true, // 删除所有的 `console` 语句，可以兼容ie浏览器
-						collapse_vars: true, // 内嵌定义了但是只用到一次的变量
-						reduce_vars: true, // 提取出出现多次但是没有定义成变量去引用的静态值
-					},
-				},
-			}),
+			new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/),
 		],
 	};
 };
