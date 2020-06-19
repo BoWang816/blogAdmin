@@ -9,10 +9,7 @@ const webpack = require('webpack');
 const path = require('path');
 const merge = require('webpack-merge');
 const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
-
-const smp = new SpeedMeasurePlugin();
 
 const commonConfig = require('./webpack-common.config');
 const serverConfig = require('./server-config');
@@ -60,12 +57,10 @@ const devConfig = {
 
 		new FriendlyErrorsPlugin({
 			compilationSuccessInfo: {
-				messages: [
-					'Your application is running here: http://localhost:3000',
-				]
+				messages: ['You application is running here http://localhost:3000']
 			}
 		})
 	]
 };
 
-module.exports = smp.wrap(merge(devConfig, commonConfig(true)));
+module.exports = merge(devConfig, commonConfig(true));

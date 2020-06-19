@@ -11,16 +11,9 @@
 	},
 	"dependencies": {
 		"@antv/data-set": "^0.11.4",
-		"antd": "^4.1.2",
-		"axios": "^0.19.2",
 		"bizcharts": "^3.5.8",
-		"mobx": "^5.15.4",
-		"mobx-react": "^6.1.8",
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1",
 		"react-draft-wysiwyg": "^1.14.4",
 		"react-icons": "^3.10.0",
-		"react-router-dom": "^5.1.2",
 		"wbaxios": "^1.0.0"
 	},
 	"author": "bo.wang",

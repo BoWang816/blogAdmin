@@ -9,7 +9,6 @@ const merge = require('webpack-merge');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 const commonConfig = require('./webpack-common.config');
 
@@ -22,6 +21,14 @@ const MainConfig = {
 
 	// 代码优化配置
 	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				default: {
+					name: 'vendor',
+					chunks: 'initial'
+				}
+			}
+		},
 		minimizer: [
 			// 压缩js
 			new TerserWebpackPlugin({
@@ -44,14 +51,6 @@ const MainConfig = {
 					minifyGradients: true
 				},
 				canPrint: true
-			}),
-
-			new FriendlyErrorsPlugin({
-				compilationSuccessInfo: {
-					messages: [
-						'Your application built finished',
-					]
-				}
 			})
 		]
 	}

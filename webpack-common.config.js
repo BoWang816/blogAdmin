@@ -114,7 +114,8 @@ module.exports = () => {
 
 		output: {
 			path: path.resolve(__dirname, 'admin'),
-			filename: '[name]_[hash:6].js',
+			filename: '[name].js',
+			chunkFilename: '[name]_[hash:6].js',
 			publicPath: '/',
 		},
 
@@ -129,7 +130,17 @@ module.exports = () => {
 			extensions: ['.js', '.jsx', '.ts', '.tsx'],
 			modules: [resolve(__dirname, './src'), 'node_modules'],
 		},
-		externals: [{ 'moment': 'moment' }],
+		externals: [{
+			'moment': 'moment',
+			'react': 'React',
+			'react-dom': 'ReactDOM',
+			'react-router': 'ReactRouter',
+			'react-router-dom':'ReactRouterDOM',
+			'mobx': 'mobx',
+			'mobx-react': 'mobxReact',
+			'axios': 'axios',
+			'antd': 'antd'
+		}],
 
 		plugins: [
 			// 清除包,3.0以后不会清除打包出来的根文件夹
@@ -171,6 +182,7 @@ module.exports = () => {
 
 			// 打包进度
 			new webpack.ProgressPlugin(),
+			// moment插件优化打包
 			new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/),
 		],
 	};
