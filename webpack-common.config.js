@@ -112,8 +112,7 @@ module.exports = () => {
 		output: {
 			path: path.resolve(__dirname, 'admin'),
 			filename: '[name].js',
-			chunkFilename: '[name]_[hash:6].js',
-			publicPath: '/',
+			chunkFilename: '[name]_[hash:6].js'
 		},
 
 		resolve: {

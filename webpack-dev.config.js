@@ -57,7 +57,7 @@ const devConfig = {
 
 		new FriendlyErrorsPlugin({
 			compilationSuccessInfo: {
-				messages: ['You application is running here http://localhost:3000']
+				messages: ['You application is running here http://localhost:4000']
 			}
 		})
 	]
