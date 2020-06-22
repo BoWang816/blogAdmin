@@ -12,8 +12,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HappyPack = require('happypack');
 
-const packageList = require('./package.json');
-
 const resolve = dir => path.resolve(__dirname, dir);
 
 module.exports = () => {
@@ -100,23 +98,22 @@ module.exports = () => {
 							options: {
 								name: 'fonts/[name].[ext]',
 								outputPath: 'static',
-							},
-						},
-					],
-				},
-			],
+							}
+						}
+					]
+				}
+			]
 		},
 
 		entry: {
-			index: './src/index.js',
-			vendor: Object.keys(packageList.dependencies), // 获取生产环境依赖的库
+			index: './src/index.js'
 		},
 
 		output: {
 			path: path.resolve(__dirname, 'admin'),
 			filename: '[name].js',
 			chunkFilename: '[name]_[hash:6].js',
-			publicPath: '/',
+			publicPath: '/'
 		},
 
 		resolve: {
@@ -128,7 +125,7 @@ module.exports = () => {
 				'@http': resolve('src/common/http'),
 			},
 			extensions: ['.js', '.jsx', '.ts', '.tsx'],
-			modules: [resolve(__dirname, './src'), 'node_modules'],
+			modules: [resolve(__dirname, './src'), 'node_modules']
 		},
 		externals: [{
 			'moment': 'moment',
@@ -140,7 +137,7 @@ module.exports = () => {
 			'mobx-react': 'mobxReact',
 			'axios': 'axios',
 			'antd': 'antd',
-			'bizcharts': 'BizCharts',
+			'bizcharts': 'BizCharts'
 		}],
 
 		plugins: [
@@ -183,6 +180,7 @@ module.exports = () => {
 
 			// 打包进度
 			new webpack.ProgressPlugin(),
+
 			// moment插件优化打包
 			new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/),
 		],

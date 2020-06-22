@@ -24,7 +24,7 @@ const MainConfig = {
 		splitChunks: {
 			cacheGroups: {
 				default: {
-					name: 'vendor',
+					name: 'lib',
 					chunks: 'initial'
 				}
 			}
