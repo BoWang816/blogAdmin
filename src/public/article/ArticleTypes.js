@@ -183,7 +183,7 @@ class ArticleTypes extends Component {
 					okText="保存">
 					<Form name="basic" initialValues={{ remember: true }} onFinish={null} onFinishFailed={null}>
 						<Form.Item label="分类名称" name="typeName" rules={[{ required: true, message: '请输入分类名称' }]}>
-							<Input placeholder="请输入分类名称" value={this.typeInfo.name} onChange={null} />
+							<Input placeholder="请输入分类名称" value={this.typeInfo && this.typeInfo.name} onChange={null} />
 						</Form.Item>
 					</Form>
 				</Modal>

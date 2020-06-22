@@ -146,7 +146,7 @@ class ArticleTags extends Component {
 							<Tag
 								icon={<AiOutlineTag />}
 								key={item.id}
-								onClick={this.showTagManageDialog(item)}
+								onClick={() => this.showTagManageDialog(item)}
 								color={TAG_COLOR[Math.floor(Math.random() * 10 + 1)]}
 								style={{ padding: '4px 8px', margin: '0 10px 20px 0' }}
 								closable
