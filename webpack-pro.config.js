@@ -33,7 +33,7 @@ const MainConfig = {
 			// 压缩js
 			new TerserWebpackPlugin({
 				cache: true,
-				parallel: true,
+				parallel: false,
 				terserOptions: {
 					output: {
 						comments: false
