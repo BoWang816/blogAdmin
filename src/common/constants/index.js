@@ -16,7 +16,6 @@ import {
 	AiOutlineProject,
 	AiOutlineCloud,
 	AiOutlineBook,
-	AiOutlineGithub,
 	AiOutlineTags,
 	AiOutlineFolderOpen,
 	AiOutlineDatabase,
@@ -44,7 +43,6 @@ import {
 	WorkList,
 	Resume,
 	Guest,
-	Github,
 } from '../../public/businessComponents';
 
 export const MENUS = [
@@ -115,12 +113,6 @@ export const MENUS = [
 			{ key: '/home/setting/info', title: '个人资料', icon: '', component: Info },
 			{ key: '/home/setting/password', title: '密码管理', icon: '', component: Password },
 		],
-	},
-	{
-		title: 'Github信息统计',
-		icon: <AiOutlineGithub />,
-		key: '/home/github',
-		component: Github,
 	},
 	{
 		title: '简历管理',

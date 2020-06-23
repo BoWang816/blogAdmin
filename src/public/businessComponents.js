@@ -28,8 +28,6 @@ const BooksNav = LoadProgress(() => import('./booksNav/BooksNav'));
 const Password = LoadProgress(() => import('./setting/Password'));
 const Info = LoadProgress(() => import('./setting/Info'));
 
-const Github = LoadProgress(() => import('./github/Github'));
-
 const Resume = LoadProgress(() => import('./resume/Resume'));
 
 const Guest = LoadProgress(() => import('./guest/Guest'));
@@ -54,7 +52,6 @@ export {
 	BooksNav,
 	Password,
 	Info,
-	Github,
 	Guest,
 	Resume,
 	WorkList,
