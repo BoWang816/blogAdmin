@@ -143,8 +143,9 @@ module.exports = () => {
 		],
 
 		plugins: [
-			// 清除包,3.0以后不会清除打包出来的根文件夹
-			new CleanWebpackPlugin(),
+			new CleanWebpackPlugin({
+				cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, 'admin')],
+			}),
 
 			new HtmlWebpackPlugin({
 				title: 'blog admin',
