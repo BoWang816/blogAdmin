@@ -28,7 +28,7 @@ class SiderNav extends React.Component {
 					overflowY: 'scroll',
 				}}>
 				<div style={styles.logo}>{!this.props.collapsed ? 'blog Admin' : <AiOutlineHeart />}</div>
-				<CustomMenu menus={MENUS} />
+				<CustomMenu menus={MENUS} collapsed={this.props.collapsed} />
 			</div>
 		);
 	}
