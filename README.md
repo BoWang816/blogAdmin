@@ -1,11 +1,11 @@
-<h1 align="center">Welcome to blogweb 👋</h1>
+<h1 align="center">Welcome to blogAdmin 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
 </p>
 
-### 🏠 [Homepage](https://github.com/BoWang816/blogWeb)
+### 🏠 [Homepage](https://github.com/BoWang816/blogAdmin)
 
-### ✨ [Demo](https://github.com/BoWang816/blogWeb)
+### ✨ [Demo](https://admin.wangboweb.ml)
 
 ## Install
 
@@ -17,6 +17,10 @@ npm install
 
 ```sh
 npm run start
+```
+
+```html
+http://localhost:4000
 ```
 
 ## Author
