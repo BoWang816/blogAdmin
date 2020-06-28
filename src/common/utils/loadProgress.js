@@ -8,7 +8,6 @@
 import React from 'react';
 import Loadable from 'react-loadable';
 import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
 
 class LoadProgressComponent extends React.Component {
 	componentWillMount() {

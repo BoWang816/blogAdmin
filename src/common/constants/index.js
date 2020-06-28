@@ -27,8 +27,7 @@ import {
 	TrafficStatistics,
 	ReadStatistics,
 	ArticleList,
-	AddArticle,
-	EditArticle,
+	operateArticle,
 	ArticleTypes,
 	ArticleTags,
 	DiaryList,
@@ -67,8 +66,8 @@ export const MENUS = [
 		key: '/home/article',
 		subs: [
 			{ key: '/home/article/list', title: '文章列表', icon: '', component: ArticleList },
-			{ key: '/home/article/add', title: '新增文章', icon: '', component: AddArticle },
-			{ key: '/home/article/edit', title: '编辑文章', icon: '', component: EditArticle },
+			{ key: '/home/article/add', title: '新增文章', icon: '', component: operateArticle },
+			{ key: '/home/article/edit', title: '编辑文章', icon: '', component: operateArticle },
 		],
 	},
 	{

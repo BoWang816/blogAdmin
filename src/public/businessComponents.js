@@ -13,8 +13,7 @@ const ReadStatistics = LoadProgress(() => import('./dashboard/ReadStatistics'));
 const TrafficStatistics = LoadProgress(() => import('./dashboard/TrafficStatistics'));
 
 const ArticleList = LoadProgress(() => import('./article/ArticleList'));
-const AddArticle = LoadProgress(() => import('./article/AddArticle'));
-const EditArticle = LoadProgress(() => import('./article/EditArticle'));
+const operateArticle = LoadProgress(() => import('./article/operateArticle'));
 const ArticleTags = LoadProgress(() => import('./article/ArticleTags'));
 const ArticleTypes = LoadProgress(() => import('./article/ArticleTypes'));
 
@@ -40,9 +39,8 @@ export {
 	Home,
 	TrafficStatistics,
 	ReadStatistics,
-	AddArticle,
+	operateArticle,
 	ArticleList,
-	EditArticle,
 	ArticleTags,
 	ArticleTypes,
 	DiaryList,

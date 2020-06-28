@@ -1,18 +1,14 @@
 /**
- * 编辑文章组件
- * EditArticle.js
+ * 新增文章组件
+ * operateArticle.js
  * @author wangbo
  * @since 2020/3/29
  * @github https://github.com/BoWang816
  */
 import React, { Component } from 'react';
-import { Card, Row, Col, Form, Input, Button, Select, Upload } from 'antd';
+import { Card, Row, Col, Form, Input, Button, Select, Checkbox, DatePicker, Upload } from 'antd';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
-import { Editor } from 'react-draft-wysiwyg';
-import draftToHtml from 'draftjs-to-html';
-import draftToMarkdown from 'draftjs-to-markdown';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import { EditorState, convertToRaw } from 'draft-js';
+import Editor from 'for-editor';
 import BackTop from '@components/BackTop';
 import CustomBreadcrumb from '@components/CustomBreadcrumb';
 import { Black } from '@constants';
@@ -21,11 +17,11 @@ import './style.less';
 const { Option } = Select;
 const { TextArea } = Input;
 
-export default class EditArticle extends Component {
+export default class OperateArticle extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			editorState: EditorState.createEmpty(),
+			editorState: '',
 		};
 	}
 
@@ -52,27 +48,13 @@ export default class EditArticle extends Component {
 
 		return (
 			<div>
-				<CustomBreadcrumb arr={['文章', '编辑文章']} />
+				<CustomBreadcrumb arr={['文章', '新增文章']} />
 				<Card>
 					<Row gutter={10}>
-						<Col span={12}>
-							<Editor
-								editorState={editorState}
-								onEditorStateChange={this.onEditorStateChange}
-								onContentStateChange={this.onContentStateChange}
-								wrapperClassName="wrapper-class"
-								editorClassName="editor-class"
-								toolbarClassName="toolbar-class"
-								localization={{ locale: 'zh' }}
-								toolbar={{
-									image: { uploadCallback: this.uploadImageCallBack, alt: { present: true, mandatory: true } },
-								}}
-							/>
-						</Col>
-						<Col span={12}>
+						<Col span={10}>
 							<Form name="basic" initialValues={{ remember: true }} onFinish={this.onFinish} onFinishFailed={this.onFinishFailed}>
 								<Form.Item label="文章标题" name="articleTitle">
-									<Input placeholder="文章标题" />
+									<Input placeholder="文章标题" style={{ width: '80%' }} />
 								</Form.Item>
 
 								<Form.Item label="文章类型" name="articleType">
@@ -85,6 +67,12 @@ export default class EditArticle extends Component {
 										<Option value="lucy">Lucy</Option>
 									</Select>
 								</Form.Item>
+								<Form.Item label="定时发布" name="isPublish">
+									<Checkbox />
+								</Form.Item>
+								<Form.Item label="发布时间" name="publishTime">
+									<DatePicker format="YYYY-MM-DD HH:mm:ss" />
+								</Form.Item>
 								<Form.Item label="文章封面" name="articleCover">
 									<Upload {...props2}>
 										<Button>
@@ -93,7 +81,7 @@ export default class EditArticle extends Component {
 									</Upload>
 								</Form.Item>
 								<Form.Item label="文章摘要" name="articleAbstract">
-									<TextArea autoSize={{ minRows: 4, maxRows: 6 }} placeholder="文章摘要" />
+									<TextArea autoSize={{ minRows: 4, maxRows: 6 }} placeholder="文章摘要" style={{ width: '80%' }} />
 								</Form.Item>
 								<Form.Item name="search">
 									<Button type="primary" shape="round">
@@ -106,23 +94,11 @@ export default class EditArticle extends Component {
 								</Form.Item>
 							</Form>
 						</Col>
-					</Row>
-				</Card>
-				<Card bordered={false} className="card-item">
-					<Row gutter={10}>
-						<Col span={12}>
-							<Card title="同步转换HTML" bordered={false} style={{ minHeight: 200 }}>
-								{editorState && draftToHtml(convertToRaw(editorState.getCurrentContent()))}
-							</Card>
-						</Col>
-						<Col span={12}>
-							<Card title="同步转换MarkDown" bordered={false} style={{ minHeight: 200 }}>
-								{editorState && draftToMarkdown(convertToRaw(editorState.getCurrentContent()))}
-							</Card>
+						<Col span={14}>
+							<Editor value={editorState} lineNum={false} subfield preview onChange={this.onEditorStateChange} />
 						</Col>
 					</Row>
 				</Card>
-
 				<BackTop />
 			</div>
 		);

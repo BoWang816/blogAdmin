@@ -21,13 +21,28 @@ const MainConfig = {
 
 	// 代码优化配置
 	optimization: {
+		runtimeChunk: 'single',
 		splitChunks: {
+			chunks: 'all',
+			maxInitialRequests: Infinity,
+			minSize: 0,
 			cacheGroups: {
+				vendor: {
+					minChunks: 1,
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendor',
+					// name(module) {
+					// 	const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];// npm package names are URL-safe, but some servers don't like @ symbols
+					// 	return `libs.${packageName.replace('@', '')}`;
+					// },
+				},
 				default: {
-					name: 'lib',
-					chunks: 'initial'
-				}
-			}
+					name: 'common_libs',
+					minChunks: 1,
+					priority: -20, // 优先级配置项
+					reuseExistingChunk: true,
+				},
+			},
 		},
 		minimizer: [
 			// 压缩js
@@ -36,10 +51,10 @@ const MainConfig = {
 				parallel: false,
 				terserOptions: {
 					output: {
-						comments: false
-					}
+						comments: false,
+					},
 				},
-				extractComments: false
+				extractComments: false,
 			}),
 
 			// 压缩css
@@ -48,12 +63,12 @@ const MainConfig = {
 				cssProcessor: require('cssnano'),
 				cssProcessorOptions: {
 					discardComments: { removeAll: true },
-					minifyGradients: true
+					minifyGradients: true,
 				},
-				canPrint: true
-			})
-		]
-	}
+				canPrint: true,
+			}),
+		],
+	},
 };
 
 // smp.wrap loader所用打包时间
