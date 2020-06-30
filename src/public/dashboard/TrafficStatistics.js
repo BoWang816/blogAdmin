@@ -8,12 +8,7 @@
 import React, { Component } from 'react';
 
 export default class TrafficStatistics extends Component {
-
     render() {
-        return (
-            <div>
-                 访问量统计
-            </div>
-        );
-    };
+        return <div>访问量统计</div>;
+    }
 }

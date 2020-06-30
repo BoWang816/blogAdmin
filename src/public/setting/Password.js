@@ -8,12 +8,7 @@
 import React, { Component } from 'react';
 
 export default class Password extends Component {
-
     render() {
-        return (
-            <div>
-                我是password
-            </div>
-        );
-    };
+        return <div>我是password</div>;
+    }
 }

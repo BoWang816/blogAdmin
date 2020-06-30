@@ -11,25 +11,25 @@ import PrivateRoute from '../PrivateRouter';
 
 @withRouter
 class ContentMain extends Component {
-	render() {
-		// 路由统一管理
-		const children = [];
-		MENUS.forEach(item => {
-			if (item.subs && item.subs.length) {
-				item.subs.forEach(son => {
-					children.push(<PrivateRoute key={son.key} exact path={son.key} component={son.component} />);
-				});
-			}
-			children.push(<PrivateRoute key={item.key} exact path={item.key} component={item.component} />);
-		});
-		return (
-			<section style={{ padding: 20, position: 'relative' }}>
-				<Switch>
-					{children}
-					<Redirect exact from="/" to="/home" />
-				</Switch>
-			</section>
-		);
-	}
+    render() {
+        // 路由统一管理
+        const children = [];
+        MENUS.forEach(item => {
+            if (item.subs && item.subs.length) {
+                item.subs.forEach(son => {
+                    children.push(<PrivateRoute key={son.key} exact path={son.key} component={son.component} />);
+                });
+            }
+            children.push(<PrivateRoute key={item.key} exact path={item.key} component={item.component} />);
+        });
+        return (
+            <section style={{ padding: 20, position: 'relative' }}>
+                <Switch>
+                    {children}
+                    <Redirect exact from="/" to="/home" />
+                </Switch>
+            </section>
+        );
+    }
 }
 export default ContentMain;

@@ -14,36 +14,44 @@ import './style.less';
 @withRouter
 @inject('appStore')
 class Login extends Component {
-	onFinish = values => {
-		console.log('Success:', values);
-		// const users = this.props.appStore.users;
-		// const result = users.find(item => item.username === values.username);
+    onFinish = values => {
+        console.log('Success:', values);
+        // const users = this.props.appStore.users;
+        // const result = users.find(item => item.username === values.username);
 
-		this.props.appStore.toggleLogin(true, { username: values.username });
+        this.props.appStore.toggleLogin(true, { username: values.username });
 
-		const { from } = this.props.location.state || { from: { pathname: '/' } };
-		this.props.history.push(from);
-	};
+        const { from } = this.props.location.state || { from: { pathname: '/' } };
+        this.props.history.push(from);
+    };
 
-	render() {
-		return (
-			<section className="login-area">
-				<Form name="normal_login" className="login-form" initialValues={{ remember: true }} onFinish={this.onFinish}>
-					<Form.Item name="username" rules={[{ required: true, message: 'Please input your Username!' }]}>
-						<Input prefix={<AiOutlineUser className="site-form-item-icon" />} placeholder="Username" />
-					</Form.Item>
-					<Form.Item name="password" rules={[{ required: true, message: 'Please input your Password!' }]}>
-						<Input prefix={<AiOutlineLock className="site-form-item-icon" />} type="password" placeholder="Password" />
-					</Form.Item>
+    render() {
+        return (
+            <section className="login-area">
+                <Form
+                    name="normal_login"
+                    className="login-form"
+                    initialValues={{ remember: true }}
+                    onFinish={this.onFinish}>
+                    <Form.Item name="username" rules={[{ required: true, message: 'Please input your Username!' }]}>
+                        <Input prefix={<AiOutlineUser className="site-form-item-icon" />} placeholder="Username" />
+                    </Form.Item>
+                    <Form.Item name="password" rules={[{ required: true, message: 'Please input your Password!' }]}>
+                        <Input
+                            prefix={<AiOutlineLock className="site-form-item-icon" />}
+                            type="password"
+                            placeholder="Password"
+                        />
+                    </Form.Item>
 
-					<Form.Item>
-						<Button type="primary" htmlType="submit" className="login-form-button">
-							Log in
-						</Button>
-					</Form.Item>
-				</Form>
-			</section>
-		);
-	}
+                    <Form.Item>
+                        <Button type="primary" htmlType="submit" className="login-form-button">
+                            Log in
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </section>
+        );
+    }
 }
 export default Login;

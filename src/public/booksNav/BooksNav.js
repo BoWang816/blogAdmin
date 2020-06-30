@@ -8,12 +8,7 @@
 import React, { Component } from 'react';
 
 export default class BooksNav extends Component {
-
     render() {
-        return (
-            <div>
-                我是书签导航
-            </div>
-        );
-    };
+        return <div>我是书签导航</div>;
+    }
 }

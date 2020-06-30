@@ -8,12 +8,7 @@
 import React, { Component } from 'react';
 
 export default class Resume extends Component {
-
     render() {
-        return (
-            <div>
-                简历管理
-            </div>
-        );
-    };
+        return <div>简历管理</div>;
+    }
 }

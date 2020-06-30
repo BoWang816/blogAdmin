@@ -8,12 +8,7 @@
 import React, { Component } from 'react';
 
 export default class EditDiary extends Component {
-
     render() {
-        return (
-            <div>
-                我是编辑日记
-            </div>
-        );
-    };
+        return <div>我是编辑日记</div>;
+    }
 }

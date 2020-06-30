@@ -8,12 +8,7 @@
 import React, { Component } from 'react';
 
 export default class AddWork extends Component {
-
     render() {
-        return (
-            <div>
-                新增工作记录组件
-            </div>
-        );
-    };
+        return <div>新增工作记录组件</div>;
+    }
 }

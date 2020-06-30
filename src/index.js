@@ -14,12 +14,12 @@ import store from './store';
 import Main from './public';
 
 ReactDOM.render(
-	<Router history={history}>
-		<ConfigProvider>
-			<Provider {...store}>
-				<Main />
-			</Provider>
-		</ConfigProvider>
-	</Router>,
-	document.querySelector('#root')
+    <Router history={history}>
+        <ConfigProvider>
+            <Provider {...store}>
+                <Main />
+            </Provider>
+        </ConfigProvider>
+    </Router>,
+    document.querySelector('#root')
 );

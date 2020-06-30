@@ -12,12 +12,12 @@ import Login from './login';
 import Index from './main';
 
 export default class Main extends Component {
-	render() {
-		return (
-			<Switch>
-				<Route path="/login" component={Login} />
-				<PrivateRoute path="/" component={Index} />
-			</Switch>
-		);
-	}
+    render() {
+        return (
+            <Switch>
+                <Route path="/login" component={Login} />
+                <PrivateRoute path="/" component={Index} />
+            </Switch>
+        );
+    }
 }

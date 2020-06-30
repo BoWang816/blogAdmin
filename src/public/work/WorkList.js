@@ -8,12 +8,7 @@
 import React, { Component } from 'react';
 
 export default class WorkList extends Component {
-
     render() {
-        return (
-            <div>
-				工作记录列表
-            </div>
-        );
-    };
+        return <div>工作记录列表</div>;
+    }
 }

@@ -8,12 +8,7 @@
 import React, { Component } from 'react';
 
 export default class Cloud extends Component {
-
     render() {
-        return (
-            <div>
-               我是七牛云管理
-            </div>
-        );
-    };
+        return <div>我是七牛云管理</div>;
+    }
 }

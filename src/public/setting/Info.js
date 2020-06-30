@@ -8,12 +8,7 @@
 import React, { Component } from 'react';
 
 export default class Info extends Component {
-
     render() {
-        return (
-            <div>
-               我是个人信息
-            </div>
-        );
-    };
+        return <div>我是个人信息</div>;
+    }
 }

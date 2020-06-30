@@ -8,12 +8,7 @@
 import React, { Component } from 'react';
 
 export default class AddDiary extends Component {
-
     render() {
-        return (
-            <div>
-               我是新增日记
-            </div>
-        );
-    };
+        return <div>我是新增日记</div>;
+    }
 }

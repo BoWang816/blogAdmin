@@ -8,12 +8,7 @@
 import React, { Component } from 'react';
 
 export default class ReadStatistics extends Component {
-
     render() {
-        return (
-            <div>
-                阅读量统计
-            </div>
-        );
-    };
+        return <div>阅读量统计</div>;
+    }
 }
