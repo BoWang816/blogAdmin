@@ -19,7 +19,7 @@ npm install
 npm run start
 ```
 
-```html
+```text
 http://localhost:4000
 ```
 
