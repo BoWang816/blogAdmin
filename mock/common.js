@@ -7,5 +7,5 @@
 const menu = [];
 
 module.exports = {
-	'/menu': menu,
+    '/menu': menu
 };

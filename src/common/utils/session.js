@@ -22,6 +22,7 @@ function _getCookie(name) {
     }
     return '';
 }
+
 function _setCookie(name, value, expire) {
     const date = new Date();
     date.setDate(date.getDate() + expire);

@@ -7,10 +7,9 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import SiderNav from '@components/SiderNav';
-import HeaderBar from '@components/HeaderBar';
 import ContentMain from '@components/ContentMain';
 
-const { Sider, Header, Content } = Layout;
+const { Sider, Content } = Layout;
 
 export default class Index extends Component {
     constructor(props) {
@@ -37,9 +36,6 @@ export default class Index extends Component {
                         <SiderNav collapsed={this.state.collapsed} />
                     </Sider>
                     <Layout>
-                        <Header style={{ background: '#fff', padding: '0 16px' }}>
-                            <HeaderBar collapsed={this.state.collapsed} onToggle={this.toggle} />
-                        </Header>
                         <Content>
                             <ContentMain />
                         </Content>

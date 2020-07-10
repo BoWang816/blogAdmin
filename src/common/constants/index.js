@@ -8,40 +8,40 @@
 // 菜单列表
 import React from 'react';
 import {
-    AiOutlineHome,
-    AiOutlineEye,
-    AiOutlineIdcard,
-    AiOutlineDashboard,
-    AiOutlineSetting,
-    AiOutlineProject,
-    AiOutlineCloud,
     AiOutlineBook,
-    AiOutlineTags,
-    AiOutlineFolderOpen,
-    AiOutlineDatabase,
+    AiOutlineCloud,
     AiOutlineContacts,
-    AiOutlineRead
+    AiOutlineDashboard,
+    AiOutlineDatabase,
+    AiOutlineEye,
+    AiOutlineFolderOpen,
+    AiOutlineHome,
+    AiOutlineIdcard,
+    AiOutlineProject,
+    AiOutlineRead,
+    AiOutlineSetting,
+    AiOutlineTags
 } from 'react-icons/ai';
 import {
-    Home,
-    TrafficStatistics,
-    ReadStatistics,
-    ArticleList,
-    operateArticle,
-    ArticleTypes,
-    ArticleTags,
-    DiaryList,
     AddDiary,
-    EditDiary,
-    Password,
-    Info,
+    AddWork,
+    ArticleList,
+    ArticleTags,
+    ArticleTypes,
     BooksNav,
     Cloud,
-    AddWork,
+    DiaryList,
+    EditDiary,
     EditWork,
-    WorkList,
+    Guest,
+    Home,
+    Info,
+    operateArticle,
+    Password,
+    ReadStatistics,
     Resume,
-    Guest
+    TrafficStatistics,
+    WorkList
 } from '../../public/businessComponents';
 
 export const MENUS = [

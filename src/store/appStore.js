@@ -4,8 +4,8 @@
  * @since 2020/3/29
  * @github https://github.com/BoWang816
  */
-import { observable, action } from 'mobx';
-import { isAuthenticated, authenticateSuccess, logout } from '@utils/session';
+import { action, observable } from 'mobx';
+import { authenticateSuccess, isAuthenticated, logout } from '@utils/session';
 
 class AppStore {
     @observable isLogin = !!isAuthenticated(); // 利用cookie来判断用户是否登录，避免刷新页面后登录状态丢失
