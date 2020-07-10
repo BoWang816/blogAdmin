@@ -6,20 +6,20 @@
  */
 
 const config = {
-	// API前缀
-	apiPrefix: '/blog-web/1.0',
+    // API前缀
+    apiPrefix: '/blog-web/1.0',
 
-	// 后端API地址
-	apiUri: 'https://www.wangboweb.site',
+    // 后端API地址
+    apiUri: 'https://www.wangboweb.site',
 
-	// 后端API端口
-	apiPort: 80,
+    // 后端API端口
+    apiPort: 80,
 
-	// mock端口
-	serverPort: 4000,
+    // mock端口
+    serverPort: 4000,
 
-	// 是否使用mock数据
-	useMock: true,
+    // 是否使用mock数据
+    useMock: true
 };
 
 config.apiUri = config.useMock ? '127.0.0.1' : config.apiUri;
