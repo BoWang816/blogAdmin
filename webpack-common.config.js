@@ -144,6 +144,7 @@ module.exports = () => {
         ],
 
         plugins: [
+            // 清除包
             new CleanWebpackPlugin({
                 cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, 'admin')]
             }),
