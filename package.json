@@ -109,12 +109,14 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"
+            "pre-commit": "lint-staged",
+            "post-commmit": "git update-index -g"
         }
     },
     "lint-staged": {
         "src/**/*.{js,less}": [
-            "prettier --write"
+            "prettier --write",
+            "git add"
         ]
     },
     "keywords": [
