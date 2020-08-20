@@ -21,14 +21,14 @@ export default class OperateArticle extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            editorState: '',
+            editorState: ''
         };
     }
 
     // 编辑文章
     onEditorStateChange = editorState => {
         this.setState({
-            editorState,
+            editorState
         });
     };
 
@@ -43,7 +43,7 @@ export default class OperateArticle extends Component {
             action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
             listType: 'picture',
             defaultFileList: [...fileList],
-            className: 'upload-list-inline',
+            className: 'upload-list-inline'
         };
 
         return (
