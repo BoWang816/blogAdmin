@@ -5,33 +5,83 @@
  */
 
 .resume-area {
-    .item-info-area {
-        padding: 26px 0 15px;
+    .basic-info {
         border-bottom: 1px solid #f2f3f3;
-        border-top: 1px solid #f2f3f3;
-        .item-title {
-            position: relative;
-            padding-left: 12px;
-            font-size: 18px;
+        margin-bottom: 10px;
+
+        .name {
+            font-size: 24px;
             font-weight: 400;
-            &:before {
-                content: '';
-                position: absolute;
-                width: 3px;
-                height: 18px;
-                border-radius: 10px;
-                background-color: #53cac3;
-                left: 0;
-                top: 5px;
+
+            .gender {
+                font-size: 12px;
+                color: deepskyblue;
+                margin-left: 10px;
             }
-            .add-area {
+
+            .view-resume {
                 float: right;
                 font-size: 14px;
-                font-weight: 400;
-                color: #00c2b3;
+                color: #999;
                 cursor: pointer;
-                .add-area-text {
-                    vertical-align: text-top;
+                &:after {
+                    clear: both;
+                }
+                &:hover {
+                    color: deepskyblue;
+                }
+            }
+        }
+
+        .info-label {
+            > svg {
+                vertical-align: middle;
+                fill: #74b1ef;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .resume-area-item {
+        background: #f9f9f9;
+        margin-top: 10px;
+
+        .item-info-area {
+            padding: 26px 20px 15px 10px;
+            border-bottom: 1px solid #f2f3f3;
+            border-top: 1px solid #f2f3f3;
+
+            &:first-child {
+                border-top: none;
+            }
+
+            .item-title {
+                position: relative;
+                padding-left: 12px;
+                font-size: 18px;
+                font-weight: 400;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    width: 3px;
+                    height: 18px;
+                    border-radius: 10px;
+                    background-color: #53cac3;
+                    left: 0;
+                    top: 5px;
+                }
+
+                .add-area {
+                    float: right;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #00c2b3;
+                    cursor: pointer;
+
+                    .add-area-text {
+                        vertical-align: text-top;
+                    }
                 }
             }
         }
