@@ -10,6 +10,8 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const chalk = require('chalk');
 const HappyPack = require('happypack');
 
 const resolve = dir => path.resolve(__dirname, dir);
@@ -184,7 +186,11 @@ module.exports = () => {
             }),
 
             // 打包进度
-            new webpack.ProgressPlugin(),
+            new ProgressBarPlugin({
+                format: `progress: [:bar${chalk.green.bold(':percent')}] (:elapsed seconds) :msg`,
+                clear: false,
+                width: 60
+            }),
 
             // moment插件优化打包
             new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/)
