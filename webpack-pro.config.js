@@ -9,6 +9,7 @@ const merge = require('webpack-merge');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
 const commonConfig = require('./webpack-common.config');
 
@@ -37,7 +38,7 @@ const MainConfig = {
                     // },
                 },
                 default: {
-                    name: 'common_libs',
+                    name: 'libs',
                     minChunks: 1,
                     priority: -20, // 优先级配置项
                     reuseExistingChunk: true
@@ -66,6 +67,16 @@ const MainConfig = {
                     minifyGradients: true
                 },
                 canPrint: true
+            }),
+
+            // 开启gzip压缩
+            new CompressionWebpackPlugin({
+                filename: '[path].gz',
+                test: /\.js$|\.html$|\.css/, // 匹配文件名
+                threshold: 10240, // 对超过10kb的数据进行压缩
+                deleteOriginalAssets: false, // 是否删除原文件
+                algorithm: 'gzip',
+                minRatio: 0.8
             })
         ]
     }
